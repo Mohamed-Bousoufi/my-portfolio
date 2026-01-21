@@ -9,6 +9,8 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 
+import { useTheme } from "next-themes";
+
 const navItems = [
   { name: "Home", href: "/", icon: House },
   { name: "About", href: "/about", icon: CircleUserRound },
@@ -21,6 +23,8 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
+  const { theme, setTheme } = useTheme();
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -32,29 +36,29 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full h-10 transition-all duration-300 mt-20 ",
+        "sticky top-0 z-50 w-full transition-all duration-300 mt-4 sm:mt-8 md:mt-12 lg:mt-20 px-2 sm:px-4",
         isScrolled
-          ? "bg-background/80 backdrop-blur-md border-b shadow-sm"
+          ? "bg-background/80 backdrop-blur-md shadow-sm"
           : "bg-transparent"
       )}
     >
-      <nav className="container max-w-2xl mx-auto md:pl-25  h-10 flex items-center justify-between rounded-full border border-solid border-gray-300 shadow-2xl">
+      <nav className="container max-w-[50%] sm:max-w-xl md:max-w-2xl mx-auto h-12 sm:h-10 flex items-center justify-between rounded-full border border-solid border-border bg-background/50 backdrop-blur-sm shadow-2xl pl-2 sm:pl-4">
 
         {/* Desktop Navigation */}
-        <div className="items-center space-x-8">
+        <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className={cn(
-                "text-sm font-medium transition-colors hover:text-primary relative",
+                "text-xs lg:text-sm font-medium transition-colors hover:text-primary relative",
                 pathname === item.href
                   ? "text-primary"
                   : "text-muted-foreground"
               )}
             >
               {
-                <item.icon className="inline-block  h-4 w-4 mr-2" />
+                <item.icon className="inline-block h-3 w-3 lg:h-4 lg:w-4 mr-1 lg:mr-2" />
               }
               {item.name}
               {pathname === item.href && (
@@ -63,13 +67,14 @@ export function Navbar() {
             </Link>
           ))}
         </div>
-          <div className="hidden md:flex  border border-solid border-gray-300 shadow-2xl rounded-full">
-            <Button className='rounded-full bg-gray-500'>
-            <Avatar className='size-5'>
+          <div className="hidden md:flex border border-solid border-border shadow-2xl rounded-full">
+            <Button className='rounded-full bg-muted-foreground text-xs lg:text-sm px-2 lg:px-4' onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
+            <Avatar className='size-4 lg:size-5'>
               <AvatarImage src='https://cdn.shadcnstudio.com/ss-assets/avatar/avatar-5.png' alt='Hallie Richards' />
               <AvatarFallback className='text-foreground text-xs'>HR</AvatarFallback>
             </Avatar>
-            @hallierichards
+            <span className="hidden lg:inline">@hallierichards</span>
+            <span className="lg:hidden">@hallie</span>
           </Button>
           </div>
 
