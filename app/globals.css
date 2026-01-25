@@ -5,13 +5,13 @@
 
 :root {
   --background: rgb(252 252 252);
-  --foreground: rgb(49 62 56);
+  --foreground: #313e38;
   --card: rgb(255 255 255);
   --card-foreground: rgb(49 62 56);
   --popover: rgb(255 255 255);
   --popover-foreground: rgb(49 62 56);
-  --primary: rgb(0 178 98);
-  --primary-foreground: rgb(239 255 250);
+  --primary:#00b262;
+  --primary-foreground: #f0fffa;
   --secondary: rgb(210 224 234);
   --secondary-foreground: rgb(18 22 31);
   --muted: rgb(211 224 234);

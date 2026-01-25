@@ -56,10 +56,10 @@ export function BackgroundPaths({
   children?: React.ReactNode;
 }) {
   return (
-    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-background">
+    <div className="relative min-h-screen w-full flex flex-row items-start justify-between overflow-hidden bg-background">
       <div className="absolute inset-0">
-        <FloatingPaths position={1} />
-        <FloatingPaths position={-1} />
+        <FloatingPaths position={0} />
+        <FloatingPaths position={9} />
       </div>
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center">
@@ -67,14 +67,13 @@ export function BackgroundPaths({
           children
         ) : (
           <motion.div
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 2 }}
+            transition={{ duration: 4 }}
             className="max-w-4xl mx-auto"
           >
             <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 md:mb-8 tracking-tighter">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground to-foreground/80">
-                {title}
               </span>
             </h1>
           </motion.div>
