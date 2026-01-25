@@ -54,15 +54,15 @@
 }
 
 .dark {
-  --background: rgb(8 11 20);
-  --foreground: rgb(233 240 245);
+  --background: #080b14;
+  --foreground: #e9f0f5;
   --card: rgb(18 22 31);
   --card-foreground: rgb(233 240 245);
   --popover: rgb(18 22 31);
   --popover-foreground: rgb(233 240 245);
   --primary: rgb(0 178 98);
   --primary-foreground: rgb(8 11 20);
-  --secondary: rgb(40 45 61);
+  --secondary: #282d3e;
   --secondary-foreground: rgb(233 240 245);
   --muted: rgb(40 45 61);
   --muted-foreground: rgb(121 128 147);

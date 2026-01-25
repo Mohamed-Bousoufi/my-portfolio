@@ -56,7 +56,7 @@ export function BackgroundPaths({
   children?: React.ReactNode;
 }) {
   return (
-    <div className="relative min-h-screen w-full flex flex-row items-start justify-between overflow-hidden bg-background">
+    <div className="relative min-h-screen w-full flex flex-row items-start justify-between overflow-hidden bg-transparent">
       <div className="absolute inset-0">
         <FloatingPaths position={0} />
         <FloatingPaths position={9} />

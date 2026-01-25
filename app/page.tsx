@@ -3,6 +3,7 @@ import { Navbar } from "./navbar";
 import { BackgroundPaths } from "@/components/ui/background-paths";
 import {TypingText} from "@/components/ui/typing-text"
 import { SvgAvatar } from "@/components/ui/svg-avatar";
+import * as motion from "motion/react-client"
 
 export default function Home() {
   return (
