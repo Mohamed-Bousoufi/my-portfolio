@@ -12,7 +12,7 @@ export function SvgAvatar(props: React.SVGProps<SVGSVGElement>) {
     >
       <g
         id="SVGRepo_bgCarrier"
-        stroke-width="0"
+        strokeWidth="0"
         transform="translate(0,0), scale(1)"
       >
         <rect
@@ -21,16 +21,16 @@ export function SvgAvatar(props: React.SVGProps<SVGSVGElement>) {
           width="163.84"
           height="163.84"
           rx="81.92"
-          fill="var(--color-muted)"
-          strokewidth="0"
+          fill="#00000000"
+          strokeWidth="0"
         ></rect>
       </g>
       <g
         id="SVGRepo_tracerCarrier"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         stroke="#CCCCCC"
-        stroke-width="0.768"
+        strokeWidth="0.768"
       ></g>
       <g id="SVGRepo_iconCarrier">
         <title></title>
