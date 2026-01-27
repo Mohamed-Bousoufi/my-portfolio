@@ -28,7 +28,7 @@
     }
   }
   // If other, fallback
-  return fallbackHex(color);
+  return fallbackHex();
 }
 
 // Helper: convert Lab to RGB
@@ -52,7 +52,7 @@ function labToRgb(l: number, a: number, b: number): [number, number, number] {
   return [r * 255, g * 255, b2 * 255];
     }
 
-    function fallbackHex(cssVar: string): string {
+    function fallbackHex(): string {
       return '#000000';
     }
 
@@ -60,8 +60,11 @@ function labToRgb(l: number, a: number, b: number): [number, number, number] {
 
 
 export function getCssVar(name: string, fallback: string) {
-      const value = getComputedStyle(document.documentElement)
-        .getPropertyValue(name)
-        .trim();
-      return value || fallback;
-    }
+  if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+    const value = getComputedStyle(document.documentElement)
+      .getPropertyValue(name)
+      .trim();
+    return value || fallback;
+  }
+  return fallback;
+}

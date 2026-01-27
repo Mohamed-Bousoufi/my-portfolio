@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Menu, X,House,FolderKanban,CircleUserRound,MessageSquareMore } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Menu,House,FolderKanban,CircleUserRound,MessageSquareMore,Moon,Sun } from "lucide-react";
+import { Button } from "@/components/ui/button" ;
+import {Button as ToggelTheme} from  "@/components/ui/moving-border"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
@@ -68,14 +69,15 @@ export function Navbar() {
           ))}
         </div>
           <div className="hidden md:flex border border-solid border-border shadow-2xl rounded-full">
-            <Button className='rounded-full bg-muted-foreground text-xs lg:text-sm px-2 lg:px-4' onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
-            <Avatar className='size-4 lg:size-5'>
-              <AvatarImage src='https://cdn.shadcnstudio.com/ss-assets/avatar/avatar-5.png' alt='Hallie Richards' />
-              <AvatarFallback className='text-foreground text-xs'>HR</AvatarFallback>
-            </Avatar>
-            <span className="hidden lg:inline">@hallierichards</span>
-            <span className="lg:hidden">@hallie</span>
-          </Button>
+              <ToggelTheme
+                borderRadius="1.75rem"
+                borderClassName="h-12 sm:h-10 text-primary bg-background"
+                className="h-12 sm:h-10 bg-background border border-solid border-border shadow-2xl"
+                onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+              >
+                <Moon className="text-foreground"/>
+                <Sun className="text-foreground"/>
+              </ToggelTheme>
           </div>
 
         {/* Mobile Menu */}

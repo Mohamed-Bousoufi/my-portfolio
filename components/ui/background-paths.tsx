@@ -2,18 +2,35 @@
 
 import { motion } from "framer-motion";
 
+import { useMemo } from "react";
+
 function FloatingPaths({ position }: { position: number }) {
-  const paths = Array.from({ length: 36 }, (_, i) => ({
-    id: i,
-    d: `M-${380 - i * 5 * position} -${189 + i * 6}C-${
-      380 - i * 5 * position
-    } -${189 + i * 6} -${312 - i * 5 * position} ${216 - i * 6} ${
-      152 - i * 5 * position
-    } ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${
-      684 - i * 5 * position
-    } ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
-    width: 0.5 + i * 0.03,
-  }));
+  // Generate stable random durations for each path
+  const pathData = useMemo(
+    () =>
+      Array.from({ length: 36 }, (_, i) => {
+        // Calculate all values as numbers, let the sign be included naturally
+        const mX = 0 - (380 - i * 5 * position);
+        const mY = 0 - (189 + i * 6);
+        const c1X = 0 - (380 - i * 5 * position);
+        const c1Y = 0 - (189 + i * 6);
+        const c2X = 0 - (312 - i * 5 * position);
+        const c2Y = 216 - i * 6;
+        const c3X = 152 - i * 5 * position;
+        const c3Y = 343 - i * 6;
+        const c4X = 616 - i * 5 * position;
+        const c4Y = 470 - i * 6;
+        const c5X = 684 - i * 5 * position;
+        const c5Y = 875 - i * 6;
+        return {
+          id: i,
+          d: `M${mX} ${mY}C${c1X} ${c1Y} ${c2X} ${c2Y} ${c3X} ${c3Y}C${c4X} ${c4Y} ${c5X} ${c5Y} ${c5X} ${c5Y}`,
+          width: 0.5 + i * 0.03,
+          duration: 20 + Math.random() * 10,
+        };
+      }),
+    [position]
+  );
 
   return (
     <div className="absolute inset-0 pointer-events-none">
@@ -23,7 +40,7 @@ function FloatingPaths({ position }: { position: number }) {
         fill="none"
       >
         <title>Background Paths</title>
-        {paths.map((path) => (
+        {pathData.map((path) => (
           <motion.path
             key={path.id}
             d={path.d}
@@ -37,7 +54,7 @@ function FloatingPaths({ position }: { position: number }) {
               pathOffset: [0, 1, 0],
             }}
             transition={{
-              duration: 20 + Math.random() * 10,
+              duration: path.duration,
               repeat: Number.POSITIVE_INFINITY,
               ease: "linear",
             }}
@@ -49,10 +66,8 @@ function FloatingPaths({ position }: { position: number }) {
 }
 
 export function BackgroundPaths({
-  title = "Background Paths",
   children,
 }: {
-  title?: string;
   children?: React.ReactNode;
 }) {
   return (

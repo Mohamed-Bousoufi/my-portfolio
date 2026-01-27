@@ -3,7 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Navbar } from "@/app/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import LiquidEther from "@/components/ui/eitherbackground"
-import Particles from "@/components/ui/particles"
+import { BackgroundPaths } from "@/components/ui/background-paths";
+
 import "./globals.css";
 
 const geistSans = Geist({
@@ -29,11 +30,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased relative min-h-screen overflow-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased relative min-h-screen`}
       >
+      
         <div className="fixed inset-0 -z-10 w-screen h-screen pointer-events-none">
 
-               <LiquidEther
+                 <LiquidEther
                   colors={[ 'var(--primary)', 'var(--secondary)', 'var(--tertiary)' ]}
                   mouseForce={20}
                   cursorSize={100}
@@ -49,10 +51,7 @@ export default function RootLayout({
                   takeoverDuration={0.25}
                   autoResumeDelay={3000}
                   autoRampDuration={0.6}
-                  color0="var(--primary)"
-                  color1="var(--secondary)"
-                  color2="var(--tertiary)"
-              />
+                />
         </div>
         <ThemeProvider
           attribute="class"
@@ -61,7 +60,9 @@ export default function RootLayout({
           disableTransitionOnChange
           >
           <Navbar />
+          <BackgroundPaths>
           {children}
+          </BackgroundPaths>
         </ThemeProvider>
       </body>
     </html>

@@ -10,10 +10,12 @@ interface ColorMap {
  * @param colorMap - Object mapping old colors to new colors (hex format)
  * @returns Modified animation data
  */
+
+
 export function changeLottieColors(
-  animationData: any,
+  animationData: Record<string, unknown>,
   colorMap: ColorMap,
-): any {
+): Record<string, unknown> {
   // Deep clone to avoid mutating original
   const data = JSON.parse(JSON.stringify(animationData));
 
@@ -39,22 +41,22 @@ export function changeLottieColors(
   };
 
   // Recursive function to find and replace colors
-  const replaceColors = (obj: any) => {
-    for (let key in obj) {
+  const replaceColors = (obj: Record<string, unknown>) => {
+    for (const key in obj) {
       if (typeof obj[key] === "object" && obj[key] !== null) {
         // Check if this is a color property
         if (key === "c" || key === "s") {
-          // 'c' = fill color, 's' = stroke color
-          if (obj[key].k && Array.isArray(obj[key].k)) {
-            const currentColor = rgbArrayToHex(obj[key].k);
+          const colorObj = obj[key] as { k?: unknown };
+          if (colorObj.k && Array.isArray(colorObj.k)) {
+            const currentColor = rgbArrayToHex(colorObj.k as number[]);
 
             // Check if this color should be replaced
-            for (let oldColor in colorMap) {
+            for (const oldColor in colorMap) {
               const normalizedOld = oldColor.toLowerCase();
               const normalizedCurrent = currentColor.toLowerCase();
 
               if (normalizedOld === normalizedCurrent) {
-                obj[key].k = hexToRgbArray(colorMap[oldColor]);
+                (colorObj.k as number[]) = hexToRgbArray(colorMap[oldColor]);
                 break;
               }
             }
@@ -62,7 +64,7 @@ export function changeLottieColors(
         }
 
         // Recursively process nested objects
-        replaceColors(obj[key]);
+        replaceColors(obj[key] as Record<string, unknown>);
       }
     }
   };
@@ -77,7 +79,7 @@ export function changeLottieColors(
  * @param newColors - Array of hex colors to use
  * @returns Modified animation data
  */
-export function replaceAllColors(animationData: any, newColors: string[]): any {
+export function replaceAllColors(animationData: Record<string, unknown>, newColors: string[]): Record<string, unknown> {
   const data = JSON.parse(JSON.stringify(animationData));
   let colorIndex = 0;
 
@@ -93,20 +95,20 @@ export function replaceAllColors(animationData: any, newColors: string[]): any {
     ];
   };
 
-  const replaceColors = (obj: any) => {
-    for (let key in obj) {
+  const replaceColors = (obj: Record<string, unknown>) => {
+    for (const key in obj) {
       if (typeof obj[key] === "object" && obj[key] !== null) {
         if (
           (key === "c" || key === "s") &&
-          obj[key].k &&
-          Array.isArray(obj[key].k)
+          (obj[key] as { k?: unknown }).k &&
+          Array.isArray((obj[key] as { k: unknown[] }).k)
         ) {
           if (colorIndex < newColors.length) {
-            obj[key].k = hexToRgbArray(newColors[colorIndex]);
+            (obj[key] as { k: number[] }).k = hexToRgbArray(newColors[colorIndex]);
             colorIndex++;
           }
         }
-        replaceColors(obj[key]);
+        replaceColors(obj[key] as Record<string, unknown>);
       }
     }
   };
@@ -120,7 +122,7 @@ export function replaceAllColors(animationData: any, newColors: string[]): any {
  * @param animationData - Lottie JSON
  * @returns Array of hex colors found in the animation
  */
-export function extractLottieColors(animationData: any): string[] {
+export function extractLottieColors(animationData: Record<string, unknown>): string[] {
   const colors = new Set<string>();
 
   const rgbArrayToHex = (rgb: number[]): string => {
@@ -130,17 +132,17 @@ export function extractLottieColors(animationData: any): string[] {
     return "#" + [r, g, b].map((x) => x.toString(16).padStart(2, "0")).join("");
   };
 
-  const findColors = (obj: any) => {
-    for (let key in obj) {
+  const findColors = (obj: Record<string, unknown>) => {
+    for (const key in obj) {
       if (typeof obj[key] === "object" && obj[key] !== null) {
         if (
           (key === "c" || key === "s") &&
-          obj[key].k &&
-          Array.isArray(obj[key].k)
+          (obj[key] as { k?: unknown }).k &&
+          Array.isArray((obj[key] as { k: unknown[] }).k)
         ) {
-          colors.add(rgbArrayToHex(obj[key].k));
+          colors.add(rgbArrayToHex((obj[key] as { k: number[] }).k));
         }
-        findColors(obj[key]);
+        findColors(obj[key] as Record<string, unknown>);
       }
     }
   };
