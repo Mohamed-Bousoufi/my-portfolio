@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button" ;
 import {Button as ToggelTheme} from  "@/components/ui/moving-border"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import Image from "next/image";
 
 import { useTheme } from "next-themes";
 
@@ -37,12 +37,23 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300 mt-4 sm:mt-8 md:mt-12 lg:mt-20 px-2 sm:px-4",
+        "sticky flex items-start top-0 z-50 w-full transition-all duration-300 mt-4 sm:mt-8 md:mt-12 lg:mt-20 px-2 sm:px-4 overflow-hidden",
         isScrolled
           ? "bg-background/80 backdrop-blur-md shadow-sm"
           : "bg-transparent"
       )}
     >
+      {/* Logo on the left, outside nav container */}
+      <div className="flex items-start ">
+        <Image
+          src="/my_logo.png"
+          alt="Logo"
+          width={96}
+          height={96}
+          className="object-cover h-12 w-36"
+          priority
+        />
+      </div>
       <nav className="container max-w-[50%] sm:max-w-xl md:max-w-2xl mx-auto h-12 sm:h-10 flex items-center justify-between rounded-full border border-solid border-border bg-background/50 backdrop-blur-sm shadow-2xl pl-2 sm:pl-4">
 
         {/* Desktop Navigation */}
@@ -71,12 +82,12 @@ export function Navbar() {
           <div className="hidden md:flex border border-solid border-border shadow-2xl rounded-full">
               <ToggelTheme
                 borderRadius="1.75rem"
-                borderClassName="h-12 sm:h-10 text-primary bg-background"
-                className="h-12 sm:h-10 bg-background border border-solid border-border shadow-2xl"
+                borderClassName="h-10 sm:h-8 bg-primary w-10"
+                className="h-10 sm:h-8 w-18 bg-background border border-solid border-border shadow-2xl"
                 onClick={() => setTheme(theme === "light" ? "dark" : "light")}
               >
-                <Moon className="text-foreground"/>
-                <Sun className="text-foreground"/>
+                <Moon className="text-muted-foreground"/> <span className="text-muted-foreground text-2xl"> | </span>
+                <Sun className="text-primary"/>
               </ToggelTheme>
           </div>
 
@@ -88,7 +99,7 @@ export function Navbar() {
               <span className="sr-only">Toggle menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+          <SheetContent side="right" className="w-75 sm:w-100">
             <nav className="flex flex-col space-y-4 mt-8">
               {navItems.map((item) => (
                 <Link

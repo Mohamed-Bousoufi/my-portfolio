@@ -8,7 +8,7 @@ import { FocusCards } from "@/components/ui/focus-cards";
 export default function About() {
 
     return (
-        <div className="flex flex-col sm:flex-row-reverse items-center justify-around min-h-screen gap-8" >
+        <div className="flex flex-col sm:flex-row-reverse items-center justify-around  gap-8" >
             <ProfileCard
                 avatarUrl="/avatar.png"
                 name="Mohamed Bousouf"
