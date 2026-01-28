@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import LiquidEther from "@/components/ui/eitherbackground"
 import { BackgroundPaths } from "@/components/ui/background-paths";
 
+
 import "./globals.css";
 
 const geistSans = Geist({
