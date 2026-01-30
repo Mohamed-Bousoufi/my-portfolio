@@ -15,8 +15,8 @@ export default function Page(){
     <section id="About" className="h-screen w-full snap-start snap-always flex items-center justify-center">
         <About/>
     </section>
-    <section id="Projects" className="h-screen w-full snap-start snap-always flex items-center justify-center">
-    <Projects/>
+    <section id="Project" className="h-screen w-full snap-start snap-always flex items-center justify-center">
+        <Projects/>
     </section>
   </main>)
 }

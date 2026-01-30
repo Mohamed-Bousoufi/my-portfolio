@@ -15,7 +15,7 @@ import { useTheme } from "next-themes";
 const navItems = [
   { name: "Home", href: "#Home", icon: House },
   { name: "About", href: "#About", icon: CircleUserRound },
-  { name: "Projects", href: "#Projects", icon: FolderKanban },
+  { name: "Projects", href: "#Project", icon: FolderKanban },
   { name: "Contact", href: "/contact", icon: MessageSquareMore },
 ];
 

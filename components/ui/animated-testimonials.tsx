@@ -1,6 +1,6 @@
 "use client";
 
-import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
+import { IconArrowLeft, IconArrowRight,IconBrandGithub } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "motion/react";
 
 import { useEffect, useState } from "react";
@@ -82,6 +82,7 @@ export const AnimatedTestimonials = ({
                   }}
                   className="absolute inset-0 origin-bottom"
                 >
+                
                   <img
                     onClick={()=>{console.log("Image Name",testimonial.name)}}
                     src={testimonial.src}
@@ -151,17 +152,18 @@ export const AnimatedTestimonials = ({
           <div className="flex items-center justify-center gap-4 pt-12 md:pt-0">
             <button
               onClick={handlePrev}
-              className="group/button flex h-15 w-25 items-center justify-center rounded-full bg-transparent border-foreground border-4"
+              className="group/button flex  w-25 items-center justify-center rounded-full bg-transparent border-foreground border-4"
             >
               <IconArrowLeft className="h-10 w-10 text-foreground transition-transform duration-300 group-hover/button:rotate-12 " />
             </button>
             <button
               onClick={handleNext}
-              className="group/button flex h-15 w-25 items-center justify-center rounded-full bg-transparent border-foreground border-4"
+              className="group/button flex  w-25 items-center justify-center rounded-full bg-transparent border-foreground border-4"
             >
               <IconArrowRight className="h-10 w-10 text-foreground transition-transform duration-300 group-hover/button:-rotate-12 " />
             </button>
           </div>
+          <button className="border rounded-3xl border-4 border-primary flex items-center justify-center w-50 self-center text-primary font-bold gap-1">See In Github<IconBrandGithub className="w-10 h-10 text-foreground transition-transform duration-300 group-hover/button:rotate-12" /></button>
         </div>
       </div>
     </div>
