@@ -71,13 +71,13 @@ export function BackgroundPaths({
   children?: React.ReactNode;
 }) {
   return (
-    <div className="relative min-h-screen w-full flex flex-row items-start justify-between overflow-hidden bg-transparent">
+    <div className="relative min-h-screen min-w-full flex flex-row items-start justify-center overflow-hidden bg-transparent">
       <div className="absolute inset-0">
         <FloatingPaths position={0} />
         <FloatingPaths position={9} />
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center">
+      <div className="relative z-10 container text-center bg-transparent min-w-screen">
         {children ? (
           children
         ) : (

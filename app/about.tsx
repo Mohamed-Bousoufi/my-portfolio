@@ -30,8 +30,8 @@ export default function About() {
             {isVisible && (
                 <AnimatedContent
                     distance={300}
-                    direction="vertical"
-                    reverse
+                    direction="horizontal"
+                    reverse={false}
                     duration={2.9}
                     ease="power.out"
                     initialOpacity={0}
@@ -40,7 +40,7 @@ export default function About() {
                     threshold={0.1}
                     delay={0.5}
                 >
-                    <div className="flex flex-col sm:flex-row-reverse items-center justify-around gap-8">
+                    <div className="flex flex-col sm:flex-row-reverse items-end justify-around gap-8">
                         <ProfileCard
                             avatarUrl="/avatar.png"
                             name="Mohamed Bousouf"
@@ -51,9 +51,9 @@ export default function About() {
                             showUserInfo={false}
                             enableTilt={true}
                             enableMobileTilt={false}
-                            showBehindGlow={false}
+                            showBehindGlow={true}
                             behindGlowColor="rgba(var(--primary))"
-                            customInnerGradient="linear-gradient(145deg,var(--primary) 0%,#71C4FF44 100%)"
+                            customInnerGradient="linear-gradient(145deg,var(--primary),#71C4FF44 100%)"
                         />
                         <div className="flex flex-col items-center justify-center w-[350px] h-[350px] sm:w-[500px] sm:h-[400px] md:w-[600px] md:h-[450px] lg:w-[700px] lg:h-[500px]">
                             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground my-4">LET ME INTRODUCE MYSELF</h1>

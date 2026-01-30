@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Navbar } from "@/app/navbar";
@@ -34,7 +35,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased relative min-h-screen`}
       >
       
-        <div className="fixed inset-0 -z-10 w-screen h-screen pointer-events-none">
+        <div className="fixed inset-0 -z-10 w-screen h-screen pointer-events-none ">
 
                  <LiquidEther
                   colors={[ 'var(--primary)', 'var(--secondary)', 'var(--tertiary)' ]}
