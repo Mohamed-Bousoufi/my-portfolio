@@ -1,5 +1,6 @@
 import Home from "./home"
 import About from "./about"
+import { Projects } from "./projects"
 
 
 
@@ -13,6 +14,9 @@ export default function Page(){
     </section>
     <section id="About" className="h-screen w-full snap-start snap-always flex items-center justify-center">
         <About/>
+    </section>
+    <section id="Projects" className="h-screen w-full snap-start snap-always flex items-center justify-center">
+    <Projects/>
     </section>
   </main>)
 }

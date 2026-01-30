@@ -13,9 +13,9 @@ import Image from "next/image";
 import { useTheme } from "next-themes";
 
 const navItems = [
-  { name: "Home", href: "/", icon: House },
-  { name: "About", href: "/about", icon: CircleUserRound },
-  { name: "Projects", href: "/projects", icon: FolderKanban },
+  { name: "Home", href: "#Home", icon: House },
+  { name: "About", href: "#About", icon: CircleUserRound },
+  { name: "Projects", href: "#Projects", icon: FolderKanban },
   { name: "Contact", href: "/contact", icon: MessageSquareMore },
 ];
 
@@ -58,26 +58,49 @@ export function Navbar() {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={cn(
-                "text-xs lg:text-sm font-medium transition-colors hover:text-primary relative",
-                pathname === item.href
-                  ? "text-primary"
-                  : "text-muted-foreground"
-              )}
-            >
-              {
+          {navItems.map((item) => {
+            if (item.name === "About") {
+              return (
+                <button
+                  key={item.href}
+                  onClick={() => {
+                    const el = document.getElementById("About");
+                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className={cn(
+                    "text-xs lg:text-sm font-medium transition-colors hover:text-primary relative bg-transparent border-none outline-none cursor-pointer",
+                    pathname === item.href
+                      ? "text-primary"
+                      : "text-muted-foreground"
+                  )}
+                >
+                  <item.icon className="inline-block h-3 w-3 lg:h-4 lg:w-4 mr-1 lg:mr-2" />
+                  {item.name}
+                  {pathname === item.href && (
+                    <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full" />
+                  )}
+                </button>
+              );
+            }
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={cn(
+                  "text-xs lg:text-sm font-medium transition-colors hover:text-primary relative",
+                  pathname === item.href
+                    ? "text-primary"
+                    : "text-muted-foreground"
+                )}
+              >
                 <item.icon className="inline-block h-3 w-3 lg:h-4 lg:w-4 mr-1 lg:mr-2" />
-              }
-              {item.name}
-              {pathname === item.href && (
-                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full" />
-              )}
-            </Link>
-          ))}
+                {item.name}
+                {pathname === item.href && (
+                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full" />
+                )}
+              </Link>
+            );
+          })}
         </div>
           <div className="hidden md:flex border border-solid border-border shadow-2xl rounded-full">
               <ToggelTheme
@@ -101,21 +124,43 @@ export function Navbar() {
           </SheetTrigger>
           <SheetContent side="right" className="w-75 sm:w-100">
             <nav className="flex flex-col space-y-4 mt-8">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className={cn(
-                    "text-lg font-medium transition-colors hover:text-primary px-4 py-2 rounded-md",
-                    pathname === item.href
-                      ? "text-primary bg-primary/10"
-                      : "text-muted-foreground"
-                  )}
-                >
-                  {item.name}
-                </Link>
-              ))}
+              {navItems.map((item) => {
+                if (item.name === "About") {
+                  return (
+                    <button
+                      key={item.href}
+                      onClick={() => {
+                        setIsOpen(false);
+                        const el = document.getElementById("About");
+                        if (el) el.scrollIntoView({ behavior: "smooth" });
+                      }}
+                      className={cn(
+                        "text-lg font-medium transition-colors hover:text-primary px-4 py-2 rounded-md bg-transparent border-none outline-none cursor-pointer",
+                        pathname === item.href
+                          ? "text-primary bg-primary/10"
+                          : "text-muted-foreground"
+                      )}
+                    >
+                      {item.name}
+                    </button>
+                  );
+                }
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className={cn(
+                      "text-lg font-medium transition-colors hover:text-primary px-4 py-2 rounded-md",
+                      pathname === item.href
+                        ? "text-primary bg-primary/10"
+                        : "text-muted-foreground"
+                    )}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              })}
               <div className="pt-4 border-t">
                 <Button asChild className="w-full">
                   <Link href="/contact" onClick={() => setIsOpen(false)}>

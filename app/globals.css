@@ -16,7 +16,7 @@
 
 
 :root {
-  --background: oklch(1.0000 0 0);
+  --background: #ffffff;
   --foreground: oklch(0.2101 0.0318 264.6645);
   --card: oklch(1.0000 0 0);
   --card-foreground: oklch(0.2101 0.0318 264.6645);
@@ -26,7 +26,7 @@
   --primary-foreground: oklch(1.0000 0 0);
   --secondary: #527575;
   --secondary-foreground: oklch(1.0000 0 0);
-  --muted: oklch(0.9670 0.0029 264.5419);
+  --muted: #f3f4f6;
   --muted-foreground: #6b7280;
   --accent: oklch(0.9491 0 0);
   --accent-foreground: oklch(0.2101 0.0318 264.6645);
