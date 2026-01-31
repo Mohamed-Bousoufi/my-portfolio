@@ -90,11 +90,29 @@ export const AnimatedTestimonials = ({
                     width={150}
                     height={150}
                     draggable={false}
-                    className="h-full w-full rounded-3xl object-fit object-center"
+                    className="h-full w-full rounded-3xl object-cover object-center border-4 border-foreground"
                   />
                 </motion.div>
               ))}
             </AnimatePresence>
+          </div>
+          <div className="flex items-center justify-center my-8 gap-2 pt-12 md:pt-0">
+            <button
+              onClick={handlePrev}
+              className="group/button flex  w-25 items-center justify-center rounded-full bg-transparent border-foreground border-4"
+            >
+              <IconArrowLeft className="h-10 w-10 text-foreground transition-transform duration-300 group-hover/button:rotate-12 " />
+            </button>
+            <button
+              onClick={handleNext}
+              className="group/button flex  w-25 items-center justify-center rounded-full bg-transparent border-foreground border-4"
+            >
+              <IconArrowRight className="h-10 w-10 text-foreground transition-transform duration-300 group-hover/button:-rotate-12 " />
+            </button>
+          <button className="border rounded-3xl border-4 border-foreground flex items-center justify-center w-50 self-center text-foreground font-bold gap-1">
+            See In Github
+            <IconBrandGithub className="w-10 h-10 text-foreground transition-transform duration-300 group-hover/button:rotate-12" />
+            </button>
           </div>
         </div>
         <div className="flex flex-col justify-between py-4 gap-4">
@@ -149,21 +167,6 @@ export const AnimatedTestimonials = ({
               ))}
             </motion.p>
           </motion.div>
-          <div className="flex items-center justify-center gap-4 pt-12 md:pt-0">
-            <button
-              onClick={handlePrev}
-              className="group/button flex  w-25 items-center justify-center rounded-full bg-transparent border-foreground border-4"
-            >
-              <IconArrowLeft className="h-10 w-10 text-foreground transition-transform duration-300 group-hover/button:rotate-12 " />
-            </button>
-            <button
-              onClick={handleNext}
-              className="group/button flex  w-25 items-center justify-center rounded-full bg-transparent border-foreground border-4"
-            >
-              <IconArrowRight className="h-10 w-10 text-foreground transition-transform duration-300 group-hover/button:-rotate-12 " />
-            </button>
-          </div>
-          <button className="border rounded-3xl border-4 border-primary flex items-center justify-center w-50 self-center text-primary font-bold gap-1">See In Github<IconBrandGithub className="w-10 h-10 text-foreground transition-transform duration-300 group-hover/button:rotate-12" /></button>
         </div>
       </div>
     </div>

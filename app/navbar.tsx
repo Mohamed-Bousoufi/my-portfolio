@@ -37,7 +37,7 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "sticky flex items-start top-0 z-50 w-full transition-all duration-300 mt-4 sm:mt-8 md:mt-12 lg:mt-20 px-2 sm:px-4 overflow-hidden",
+        "sticky flex items-start top-0 z-50 w-full transition-all duration-300 mt-4 sm:mt-8 md:mt-12 lg:mt-20 px-2 sm:px-4 ",
         isScrolled
           ? "bg-background/80 backdrop-blur-md shadow-sm"
           : "bg-transparent"
@@ -102,7 +102,7 @@ export function Navbar() {
             );
           })}
         </div>
-          <div className="hidden md:flex border border-solid border-border shadow-2xl rounded-full">
+          <div className="hidden md:flex border border-solid border-border shadow-2xl rounded-full overflow-hidden">
               <ToggelTheme
                 borderRadius="1.75rem"
                 borderClassName="h-10 sm:h-8 bg-primary w-10"

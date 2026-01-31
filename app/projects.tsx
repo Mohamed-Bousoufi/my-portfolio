@@ -1,6 +1,50 @@
+"use client"
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials"
+import { RiNextjsFill } from "react-icons/ri";
+import { FaPython } from "react-icons/fa6";
+import { SiDjango } from "react-icons/si";
+import { RiTailwindCssFill } from "react-icons/ri";
+import { DiPostgresql } from "react-icons/di";
+import { TbBrandThreejs } from "react-icons/tb";
+import { IoLogoDocker } from "react-icons/io5";
+import { SiNginx } from "react-icons/si";
+import { FaLinux } from "react-icons/fa";
+import { FaReact } from "react-icons/fa";
+import { FaGitAlt } from "react-icons/fa";
+import { SiSocketdotio } from "react-icons/si";
+import { FaJava } from "react-icons/fa";
+import { SiSpringboot } from "react-icons/si";
+import { IconCloud } from "@/components/ui/icon-cloud";
+import { cssColorToHex } from "./utils/ColorConverter";
+import { useEffect, useState } from "react";
+
 
 export function Projects() {
+  const [primaryColor, setPrimaryColor] = useState("#d87943");
+
+  useEffect(() => {
+    const Labcolor = getComputedStyle(document.documentElement).getPropertyValue("--foreground").trim();
+    const color = cssColorToHex(Labcolor);
+    console.log("+++++++++++", color);
+    if (color)  (() => setPrimaryColor(color))();
+  }, []);
+
+  const IconClouds = [
+    <RiNextjsFill key="nextjs" size={96} color={primaryColor} />, 
+    <FaPython key="python" size={96} color={primaryColor}/>, 
+    <SiDjango key="django" size={96} color={primaryColor}/>,
+    <RiTailwindCssFill key="tailwind" size={96} color={primaryColor}/>,
+    <DiPostgresql key="postgresql" size={96} color={primaryColor}/>,
+    <TbBrandThreejs key="threejs" size={96} color={primaryColor}/>,
+    <IoLogoDocker key="docker" size={96} color={primaryColor}/>,
+    <SiNginx key="nginx" size={96} color={primaryColor}/>,
+    <FaLinux key="linux" size={96} color={primaryColor}/>,
+    <FaReact key="react" size={96} color={primaryColor}/>,
+    <FaGitAlt key="git" size={96} color={primaryColor}/>,
+    <SiSocketdotio key="socketio" size={96} color={primaryColor}/>,
+    <FaJava key="java" size={96} color={primaryColor}/>,
+    <SiSpringboot key="springboot" size={96} color={primaryColor}/>
+  ];
 
   const testimonials = [
     {
@@ -35,6 +79,15 @@ export function Projects() {
 
 
     return (
-        <AnimatedTestimonials testimonials={testimonials} />
+      <div
+        className="min-h-screen w-full flex flex-col md:flex-row items-center justify-center md:justify-around gap-8 p-4"
+      >
+        <div className="w-full md:w-1/2 flex justify-center">
+          <AnimatedTestimonials testimonials={testimonials} />
+        </div>
+        <div className="w-full md:w-1/2 flex justify-center">
+          <IconCloud icons={IconClouds} />
+        </div>
+      </div>
     )
 }
