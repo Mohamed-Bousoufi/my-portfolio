@@ -46,10 +46,9 @@ export const AnimatedTestimonials = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [testimonials.length]);
   return (
-    <div className="max-w-screen  py-20 font-sans antialiased md:max-w-4xl ">
-      <div className="relative grid grid-cols-1 gap-40 md:grid-cols-2">
+      <div className="flex flex-col sm:flex-row gap-8  w-full items-center">
         <div>
-          <div className="relative h-128 w-full">
+          <div className="relative h-36 md:h-128 w-full">
             <AnimatePresence>
               {testimonials.map((testimonial, index) => (
                 <motion.div
@@ -80,7 +79,7 @@ export const AnimatedTestimonials = ({
                     duration: 0.4,
                     ease: "easeInOut",
                   }}
-                  className="absolute inset-0 origin-bottom"
+                  className="absolute inset-0 origin-bottom flex items-center justify-center"
                 >
                 
                   <img
@@ -90,7 +89,7 @@ export const AnimatedTestimonials = ({
                     width={150}
                     height={150}
                     draggable={false}
-                    className="h-full w-full rounded-3xl object-cover object-center border-4 border-foreground"
+                    className="w-full max-w-[150px] h-auto max-h-[150px] sm:max-w-[200px] sm:max-h-[200px] rounded-3xl object-cover object-center border-4 border-foreground"
                   />
                 </motion.div>
               ))}
@@ -99,23 +98,23 @@ export const AnimatedTestimonials = ({
           <div className="flex items-center justify-center my-8 gap-2 pt-12 md:pt-0">
             <button
               onClick={handlePrev}
-              className="group/button flex  w-25 items-center justify-center rounded-full bg-transparent border-foreground border-4"
+              className="group/button flex w-8 md:w-25 items-center justify-center rounded-full bg-transparent border-foreground border-1 md:border-4"
             >
-              <IconArrowLeft className="h-10 w-10 text-foreground transition-transform duration-300 group-hover/button:rotate-12 " />
+              <IconArrowLeft className="h-4 w-4 md:h-10 md:w-10 text-foreground transition-transform duration-300 group-hover/button:rotate-12 " />
             </button>
             <button
               onClick={handleNext}
-              className="group/button flex  w-25 items-center justify-center rounded-full bg-transparent border-foreground border-4"
+              className="group/button flex w-8 md:w-25 items-center justify-center rounded-full bg-transparent border-foreground border-1 md:border-4"
             >
-              <IconArrowRight className="h-10 w-10 text-foreground transition-transform duration-300 group-hover/button:-rotate-12 " />
+              <IconArrowRight className="h-4 w-4 md:h-10 md:w-10 text-foreground transition-transform duration-300 group-hover/button:-rotate-12 " />
             </button>
-          <button className="border rounded-3xl border-4 border-foreground flex items-center justify-center w-50 self-center text-foreground font-bold gap-1">
+          <button className="border rounded-3xl border-1 md:border-4 border-foreground flex items-center justify-center w-50 self-center text-foreground font-bold gap-1">
             See In Github
-            <IconBrandGithub className="w-10 h-10 text-foreground transition-transform duration-300 group-hover/button:rotate-12" />
+            <IconBrandGithub className="h-4 w-4 md:h-10 md:w-10 text-foreground" />
             </button>
           </div>
         </div>
-        <div className="flex flex-col justify-between py-4 gap-4">
+        <div className="flex flex-col justify-between py-4 gap-4 rounded-3xl max-h-96">
           <motion.div
             key={active}
             initial={{
@@ -169,6 +168,5 @@ export const AnimatedTestimonials = ({
           </motion.div>
         </div>
       </div>
-    </div>
   );
 };

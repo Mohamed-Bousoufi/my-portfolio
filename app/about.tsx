@@ -52,9 +52,8 @@ export default function About() {
                                 showUserInfo={false}
                                 enableTilt={true}
                                 enableMobileTilt={false}
-                                showBehindGlow={true}
                                 behindGlowColor="rgba(var(--primary))"
-                                customInnerGradient="linear-gradient(145deg,var(--primary),#71C4FF44 100%)"
+                                innerGradient="linear-gradient(145deg,var(--primary),#71C4FF44 100%)"
                             />
                         </div>
                         <div className="flex-1 flex flex-col items-center justify-center min-h-[40vh] sm:min-h-0 w-full">

@@ -25,7 +25,6 @@ export function Projects() {
   useEffect(() => {
     const Labcolor = getComputedStyle(document.documentElement).getPropertyValue("--foreground").trim();
     const color = cssColorToHex(Labcolor);
-    console.log("+++++++++++", color);
     if (color)  (() => setPrimaryColor(color))();
   }, []);
 
@@ -80,14 +79,20 @@ export function Projects() {
 
     return (
       <div
-        className="min-h-screen w-full flex flex-col md:flex-row items-center justify-center md:justify-around gap-8 p-4"
+        className="min-h-screen w-full flex flex-col-reverse md:flex-row items-center justify-center gap-10 md:gap-20 lg:gap-40 px-2 md:px-8 lg:px-20"
       >
-        <div className="w-full md:w-1/2 flex justify-center">
-          <AnimatedTestimonials testimonials={testimonials} />
+        <div className="w-full h-[96dvh] min-h-[96dvh] flex justify-center items-center overflow-y-auto md:h-auto md:min-h-0">
+          <div className="w-full max-w-md sm:max-w-lg md:max-w-none flex flex-col items-center justify-center h-full p-8">
+            <AnimatedTestimonials testimonials={testimonials} />
+          </div>
         </div>
-        <div className="w-full md:w-1/2 flex justify-center">
-          <IconCloud icons={IconClouds} />
-        </div>
+        {/* <div className="w-full md:w-1/2 flex justify-center items-end h-1/2">
+          <div className="w-full flex justify-center">
+            <div className="w-[90vw] max-w-[350px] md:w-[350px] lg:w-[400px] aspect-square flex items-center justify-center">
+              <IconCloud icons={IconClouds} />
+            </div>
+          </div>
+        </div> */}
       </div>
     )
 }

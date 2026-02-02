@@ -42,11 +42,11 @@ export function IconCloud({ icons, images }: IconCloudProps) {
   const iconCanvasesRef = useRef<HTMLCanvasElement[]>([])
   const imagesLoadedRef = useRef<boolean[]>([])
 
-  // Icon and canvas size settings
-  const ICON_SIZE = 80; // px (was 40)
-  const CANVAS_SIZE = 900; // px (was 600)
 
-  // Create icon canvases once when icons/images change
+  const ICON_SIZE = 64; 
+  const CANVAS_SIZE = 300; 
+
+ 
   useEffect(() => {
     if (!icons && !images) return
 
@@ -321,12 +321,11 @@ export function IconCloud({ icons, images }: IconCloudProps) {
       ref={canvasRef}
       width={CANVAS_SIZE}
       height={CANVAS_SIZE}
-      style={{ maxWidth: "100%", height: "auto" }}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
-      className="rounded-lg"
+      className="rounded-full border-2 border-white"
       aria-label="Interactive 3D Icon Cloud"
       role="img"
     />
