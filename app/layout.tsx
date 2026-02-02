@@ -38,7 +38,7 @@ export default function RootLayout({
         <div className="fixed inset-0 -z-10 w-screen h-screen pointer-events-none ">
 
                  <LiquidEther
-                  colors={[ 'var(--primary)', 'var(--secondary)', 'var(--tertiary)' ]}
+                  colors={[ 'var(--primary)', 'var(--primary)', 'var(--primary)' ]}
                   mouseForce={20}
                   cursorSize={100}
                   isViscous

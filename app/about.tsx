@@ -12,18 +12,19 @@ export default function About() {
     const [isVisible, setIsVisible] = useState(false);
     const elementRef = useRef(null);
     useEffect(() => {
+        const currentElement = elementRef.current;
         const observer = new IntersectionObserver(([entry]) => {
             setIsVisible(entry.isIntersecting);
         });
-        if (elementRef.current) {
-            observer.observe(elementRef.current);
+        if (currentElement) {
+            observer.observe(currentElement);
         }
         return () => {
-            if (elementRef.current) {
-                observer.unobserve(elementRef.current);
+            if (currentElement) {
+                observer.unobserve(currentElement);
             }
         };
-    }, []);
+    }, [isVisible]);
 
     return (
         <div ref={elementRef}>
@@ -40,7 +41,7 @@ export default function About() {
                     threshold={0.1}
                     delay={0.5}
                 >
-                    <div className="flex flex-col sm:flex-row-reverse items-stretch justify-around gap-8 min-h-[100svh]">
+                    <div className="flex flex-col sm:flex-row-reverse items-center justify-around gap-8 min-h-[100svh]">
                         <div className="flex-1 flex items-center justify-center min-h-[40vh] sm:min-h-0">
                             <ProfileCard
                                 avatarUrl="/avatar.png"
@@ -56,9 +57,9 @@ export default function About() {
                                 innerGradient="linear-gradient(145deg,var(--primary),#71C4FF44 100%)"
                             />
                         </div>
-                        <div className="flex-1 flex flex-col items-center justify-center min-h-[40vh] sm:min-h-0 w-full">
+                        <div className="flex-1 flex flex-col items-center justify-center h-fit sm:min-h-0 w-full">
                             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground my-4 text-center">LET ME INTRODUCE MYSELF</h1>
-                            <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent w-full text-center">
+                            <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold  w-full text-center">
                                 I build websites and web apps that people actually enjoy using. 
                                 Recently wrapped up an internship at Saint-Gobain where I developed data management interfaces with React and integrated complex APIs.
                                 I love working with modern tools like Next.js, Django, and PostgreSQL - they let me create complete solutions from frontend to backend. 

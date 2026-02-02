@@ -46,9 +46,9 @@ export const AnimatedTestimonials = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [testimonials.length]);
   return (
-      <div className="flex flex-col sm:flex-row gap-8  w-full items-center">
+      <div className="flex flex-col sm:flex-row md:flex-row gap-40  w-full items-center">
         <div>
-          <div className="relative h-36 md:h-128 w-full">
+          <div className="relative h-64 md:h-128 w-full">
             <AnimatePresence>
               {testimonials.map((testimonial, index) => (
                 <motion.div
@@ -89,7 +89,7 @@ export const AnimatedTestimonials = ({
                     width={150}
                     height={150}
                     draggable={false}
-                    className="w-full max-w-[150px] h-auto max-h-[150px] sm:max-w-[200px] sm:max-h-[200px] rounded-3xl object-cover object-center border-4 border-foreground"
+                    className="w-full max-w-[150px] h-auto max-h-[150px] sm:max-w-[500px] sm:max-h-[500px] rounded-3xl object-cover object-center border-4 border-foreground"
                   />
                 </motion.div>
               ))}
@@ -108,13 +108,13 @@ export const AnimatedTestimonials = ({
             >
               <IconArrowRight className="h-4 w-4 md:h-10 md:w-10 text-foreground transition-transform duration-300 group-hover/button:-rotate-12 " />
             </button>
-          <button className="border rounded-3xl border-1 md:border-4 border-foreground flex items-center justify-center w-50 self-center text-foreground font-bold gap-1">
+          <button className="border rounded-3xl border-1 md:border-4 border-foreground flex items-center justify-center w-50 self-center text-foreground font-bold gap-1 bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
             See In Github
             <IconBrandGithub className="h-4 w-4 md:h-10 md:w-10 text-foreground" />
             </button>
           </div>
         </div>
-        <div className="flex flex-col justify-between py-4 gap-4 rounded-3xl max-h-96">
+        <div className="flex flex-col justify-between py-4 gap-4   border-r-2 border-foreground">
           <motion.div
             key={active}
             initial={{
@@ -134,13 +134,13 @@ export const AnimatedTestimonials = ({
               ease: "easeInOut",
             }}
           >
-            <h3 className="text-2xl font-bold text-black dark:text-white">
+            <h3 className="text-6xl font-bold text-foreground dark:text-white">
               {testimonials[active].name}
             </h3>
             <p className="text-sm text-gray-500 dark:text-neutral-500">
               {testimonials[active].designation}
             </p>
-            <motion.p className="mt-8 text-lg text-gray-500 dark:text-neutral-300">
+            <motion.p className="mt-8 text-lg text-foreground dark:text-neutral-300 font-bold">
               {testimonials[active].quote.split(" ").map((word, index) => (
                 <motion.span
                   key={index}

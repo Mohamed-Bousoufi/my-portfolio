@@ -44,7 +44,7 @@ export function IconCloud({ icons, images }: IconCloudProps) {
 
 
   const ICON_SIZE = 64; 
-  const CANVAS_SIZE = 300; 
+  const CANVAS_SIZE = 700; 
 
  
   useEffect(() => {
@@ -325,7 +325,7 @@ export function IconCloud({ icons, images }: IconCloudProps) {
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
-      className="rounded-full border-2 border-white"
+      className="rounded-full"
       aria-label="Interactive 3D Icon Cloud"
       role="img"
     />
