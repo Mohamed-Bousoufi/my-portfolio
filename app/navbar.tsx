@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Menu,House,FolderKanban,CircleUserRound,MessageSquareMore,Moon,Sun } from "lucide-react";
+import { Menu,House,FolderKanban,CircleUserRound,MessageSquareMore,Moon,Sun, DownloadIcon, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button" ;
 import {Button as ToggelTheme} from  "@/components/ui/moving-border"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -43,7 +43,7 @@ export function Navbar() {
           : "bg-transparent"
       )}
     >
-      {/* Logo on the left, outside nav container */}
+      
       <div className="flex items-start ">
         <Image
           src="/my_logo.png"
@@ -113,7 +113,6 @@ export function Navbar() {
                 <Sun className="text-primary"/>
               </ToggelTheme>
           </div>
-
         {/* Mobile Menu */}
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild className="md:hidden">
@@ -172,6 +171,16 @@ export function Navbar() {
           </SheetContent>
         </Sheet>
       </nav>
+      <div className="justify-end mx-16">
+        <Button className="relative text-sm font-medium rounded-full h-9 p-1 ps-2 pe-12 group transition-all duration-500 hover:ps-14 hover:pe-6 w-38 overflow-hidden bg-gradient-to-r from-muted/100 to-muted/50 ">
+        <span className="relative z-10 transition-all duration-500 text-secondary">
+          Download cv
+        </span>
+          <div className="absolute right-1 w-9 h-9 bg-secondary text-foreground rounded-full flex items-center justify-center transition-all duration-500 group-hover:right-[calc(100%-44px)]">
+            <DownloadIcon size={16} />
+          </div>
+        </Button>
+      </div>
     </header>
   );
 }

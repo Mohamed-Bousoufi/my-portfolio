@@ -6,8 +6,10 @@ import AnimatedContent from "@/components/AnimatedContent";
 import { changeLottieColors } from "@/app/utils/animationChange";
 import { useMemo } from "react";
 import { cssColorToHex, getCssVar } from "./utils/ColorConverter";
-
-
+import { Button } from "@/components/ui/button";
+import "@/components/shadcn-space/button/button-04.css";
+import { SlSocialLinkedin } from "react-icons/sl";
+import { FiGithub } from "react-icons/fi";
 
 
 
@@ -57,14 +59,19 @@ export default function Home() {
                 👋
               </span>
             </p>
-            <h1 className="text-6xl text-primary ">Mohamed Bousoufi</h1>
+            <h1 className="text-6xl text-foreground font-medium ">Mohamed Bousoufi</h1>
             <TypingText
               text={["Software", "Developer"]}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold"
-              textColor="hsl(var(--primar))"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold my-8"
+              textColor="var(--primary)"
             />
+            <div className="flex flex-row gap-4">
+              <Button size={"lg"} className="self-center flex flex-row items-center justify-center heartbeateffect bg-transparent text-foreground border border-2 border-secondary font-bold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent px-4">
+                Linkedin <SlSocialLinkedin className="w-18 h-18 text-secondary" /></Button>
+              <Button size={"lg"} className="self-center flex flex-row items-center justify-center heartbeateffect bg-transparent text-foreground border border-2 border-secondary font-bold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent px-4">
+                Github <FiGithub className="w-18 h-18 text-secondary" /></Button>
+            </div>
           </div>
-
           <Lottie animationData={coloredAnimation} loop={true} className="inline-block align-top rounded-full w-40 h-40 sm:w-96 sm:h-96 md:w-128 md:h-128 lg:w-128 lg:h-128 shrink-0 " />
         </div>
       </AnimatedContent>

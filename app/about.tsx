@@ -58,7 +58,7 @@ export default function About() {
                             />
                         </div>
                         <div className="flex-1 flex flex-col items-center justify-center h-fit sm:min-h-0 w-full">
-                            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground my-4 text-center">LET ME INTRODUCE MYSELF</h1>
+                            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground my-4 text-center bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">LET ME INTRODUCE MYSELF</h1>
                             <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold  w-full text-center">
                                 I build websites and web apps that people actually enjoy using. 
                                 Recently wrapped up an internship at Saint-Gobain where I developed data management interfaces with React and integrated complex APIs.
