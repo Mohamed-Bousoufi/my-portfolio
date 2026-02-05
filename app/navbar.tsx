@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Menu,House,FolderKanban,CircleUserRound,MessageSquareMore,Moon,Sun, DownloadIcon, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button" ;
@@ -11,6 +10,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 import { useTheme } from "next-themes";
+import { secondsToMilliseconds } from "framer-motion";
 
 const navItems = [
   { name: "Home", href: "#Home", icon: House },
@@ -20,20 +20,40 @@ const navItems = [
 ];
 
 export function Navbar() {
-  const pathname = usePathname();
+  const [activeSection, setActiveSection] = useState("#Home");
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
   const { theme, setTheme } = useTheme();
 
+
   useEffect(() => {
+    const sections = document.querySelectorAll("section[id]");
+
+    const observer = new IntersectionObserver((entries)=>{
+          entries.forEach(entry => {
+            if(entry.isIntersecting) {
+              console.log("Intersecting section:", entry.target.id);
+              setActiveSection(`#${entry.target.id}`);
+              // console.log("activeSection:", activeSection);
+            }
+          });
+        
+        }
+        , { rootMargin: "-20% 0px -35% 0px" }  
+      );
+    sections.forEach(section => observer.observe(section));
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      sections.forEach((section) => observer.unobserve(section));
+    };
   }, []);
-
+  
   return (
     <header
       className={cn(
@@ -69,14 +89,14 @@ export function Navbar() {
                   }}
                   className={cn(
                     "text-xs lg:text-sm font-medium transition-colors hover:text-primary relative bg-transparent border-none outline-none cursor-pointer",
-                    pathname === item.href
+                    activeSection === item.href
                       ? "text-primary"
                       : "text-muted-foreground"
                   )}
                 >
                   <item.icon className="inline-block h-3 w-3 lg:h-4 lg:w-4 mr-1 lg:mr-2" />
                   {item.name}
-                  {pathname === item.href && (
+                  {activeSection === item.href && (
                     <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full" />
                   )}
                 </button>
@@ -88,14 +108,14 @@ export function Navbar() {
                 href={item.href}
                 className={cn(
                   "text-xs lg:text-sm font-medium transition-colors hover:text-primary relative",
-                  pathname === item.href
+                  activeSection === item.href
                     ? "text-primary"
                     : "text-muted-foreground"
                 )}
               >
                 <item.icon className="inline-block h-3 w-3 lg:h-4 lg:w-4 mr-1 lg:mr-2" />
                 {item.name}
-                {pathname === item.href && (
+                {activeSection === item.href && (
                   <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full" />
                 )}
               </Link>
@@ -135,7 +155,7 @@ export function Navbar() {
                       }}
                       className={cn(
                         "text-lg font-medium transition-colors hover:text-primary px-4 py-2 rounded-md bg-transparent border-none outline-none cursor-pointer",
-                        pathname === item.href
+                        activeSection === item.href
                           ? "text-primary bg-primary/10"
                           : "text-muted-foreground"
                       )}
@@ -151,7 +171,7 @@ export function Navbar() {
                     onClick={() => setIsOpen(false)}
                     className={cn(
                       "text-lg font-medium transition-colors hover:text-primary px-4 py-2 rounded-md",
-                      pathname === item.href
+                      activeSection === item.href
                         ? "text-primary bg-primary/10"
                         : "text-muted-foreground"
                     )}
@@ -172,11 +192,16 @@ export function Navbar() {
         </Sheet>
       </nav>
       <div className="justify-end mx-16">
-        <Button className="relative text-sm font-medium rounded-full h-9 p-1 ps-2 pe-12 group transition-all duration-500 hover:ps-14 hover:pe-6 w-38 overflow-hidden bg-gradient-to-r from-muted/100 to-muted/50 ">
-        <span className="relative z-10 transition-all duration-500 text-secondary">
+        <Button 
+          onClick={() => {
+            window.open('/mohamed_bousoufi_cv.pdf', '_blank');
+          }}
+          className="relative text-sm font-medium rounded-full h-9  heartbeateffect ps-6 pe-12 group transition-all duration-500 hover:ps-14 hover:pe-2 w-38 overflow-hidden  bg-transparent border border-2 border-secondary hover:bg-transparent"
+        >
+        <span className="relative z-10 transition-all duration-500  bg-transparent font-bold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
           Download cv
         </span>
-          <div className="absolute right-1 w-9 h-9 bg-secondary text-foreground rounded-full flex items-center justify-center transition-all duration-500 group-hover:right-[calc(100%-44px)]">
+          <div className="absolute right-0 w-9 h-9 bg-secondary text-foreground rounded-full flex items-center justify-center transition-all duration-500 group-hover:right-[calc(100%-32px)]">
             <DownloadIcon size={16} />
           </div>
         </Button>

@@ -46,9 +46,9 @@ export const AnimatedTestimonials = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [testimonials.length]);
   return (
-      <div className="flex flex-col sm:flex-row md:flex-row gap-40  w-full items-center">
+      <div className="flex flex-col sm:flex-row md:flex-row gap-40  w-full items-center border-8 border-foreground h-auto">
         <div>
-          <div className="relative h-64 md:h-128 w-full">
+          <div className="relative h-16 md:h-128 w-full border-8">
             <AnimatePresence>
               {testimonials.map((testimonial, index) => (
                 <motion.div

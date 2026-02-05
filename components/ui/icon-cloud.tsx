@@ -43,8 +43,8 @@ export function IconCloud({ icons, images }: IconCloudProps) {
   const imagesLoadedRef = useRef<boolean[]>([])
 
 
-  const ICON_SIZE = 64; 
-  const CANVAS_SIZE = 700; 
+  const ICON_SIZE = 36; 
+  const CANVAS_SIZE = 350; 
 
  
   useEffect(() => {

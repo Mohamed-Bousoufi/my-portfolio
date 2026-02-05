@@ -79,13 +79,13 @@ export function Projects() {
 
     return (
       <div className="min-h-screen w-full flex flex-col-reverse md:flex-row items-center justify-center ">
-        <div className="min-w-screen h-[98dvh] min-h-[98dvh] flex justify-center items-center overflow-y-auto md:h-full md:min-h-0">
-          <div className="w-full max-w-md sm:max-w-lg md:max-w-none flex flex-col items-center justify-center h-full p-16">
+        <div className="min-w-screen h-[50dvh] min-h-[50dvh] flex justify-center items-center overflow-y-auto md:h-full md:min-h-0 ">
+          <div className="w-full max-w-md sm:max-w-lg md:max-w-none flex flex-col items-center justify-center h-full p-16 ">
             <AnimatedTestimonials testimonials={testimonials} />
           </div>
-          <div className=" hidden sm:block">
+          {/* <div className=" hidden sm:block">
               <IconCloud icons={IconClouds} />
-            </div>
+            </div> */}
         </div>
       </div>
     );

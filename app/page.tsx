@@ -2,8 +2,6 @@ import Home from "./home"
 import About from "./about"
 import { Projects } from "./projects"
 
-import SnapTest from "./snap-test";
-
 
 
 
