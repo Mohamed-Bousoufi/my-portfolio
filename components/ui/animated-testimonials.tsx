@@ -46,9 +46,9 @@ export const AnimatedTestimonials = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [testimonials.length]);
   return (
-      <div className="flex flex-col sm:flex-row md:flex-row gap-40  w-full items-center border-8 border-foreground h-auto">
-        <div>
-          <div className="relative h-16 md:h-128 w-full border-8">
+      <div className="flex flex-col gap-8 sm:gap- md:gap-8 lg:gap-8 w-full items-center border-foreground max-h-[80vh] overflow-auto p-2 sm:p-6 md:p-10">
+        <div className="w-full flex flex-col md:flex-row items-center gap-8 md:gap-16">
+          <div className="relative h-40 sm:h-64 md:h-96 lg:h-[28rem] w-full  rounded-3xl">
             <AnimatePresence>
               {testimonials.map((testimonial, index) => (
                 <motion.div
@@ -81,7 +81,6 @@ export const AnimatedTestimonials = ({
                   }}
                   className="absolute inset-0 origin-bottom flex items-center justify-center"
                 >
-                
                   <img
                     onClick={()=>{console.log("Image Name",testimonial.name)}}
                     src={testimonial.src}
@@ -89,83 +88,83 @@ export const AnimatedTestimonials = ({
                     width={150}
                     height={150}
                     draggable={false}
-                    className="w-full max-w-[150px] h-auto max-h-[150px] sm:max-w-[500px] sm:max-h-[500px] rounded-3xl object-cover object-center border-4 border-foreground"
+                    className="w-full max-w-[120px] sm:max-w-[180px] md:max-w-[250px] lg:max-w-[350px] h-auto max-h-[120px] sm:max-h-[180px] md:max-h-[250px] lg:max-h-[350px] rounded-3xl object-cover object-center border-2 md:border-4 border-foreground"
                   />
                 </motion.div>
               ))}
             </AnimatePresence>
           </div>
-          <div className="flex items-center justify-center my-8 gap-2 pt-12 md:pt-0">
-            <button
-              onClick={handlePrev}
-              className="group/button flex w-8 md:w-25 items-center justify-center rounded-full bg-transparent border-foreground border-1 md:border-4"
+          <div className="flex flex-col justify-between py-2 sm:py-4 gap-2 sm:gap-4 border-t-2 md:border-t-0 md:border-r-2 border-foreground w-full max-h-[60vh] overflow-y-auto">
+            <motion.div
+              key={active}
+              initial={{
+                y: 20,
+                opacity: 0,
+              }}
+              animate={{
+                y: 0,
+                opacity: 1,
+              }}
+              exit={{
+                y: -20,
+                opacity: 0,
+              }}
+              transition={{
+                duration: 0.2,
+                ease: "easeInOut",
+              }}
             >
-              <IconArrowLeft className="h-4 w-4 md:h-10 md:w-10 text-foreground transition-transform duration-300 group-hover/button:rotate-12 " />
-            </button>
-            <button
-              onClick={handleNext}
-              className="group/button flex w-8 md:w-25 items-center justify-center rounded-full bg-transparent border-foreground border-1 md:border-4"
-            >
-              <IconArrowRight className="h-4 w-4 md:h-10 md:w-10 text-foreground transition-transform duration-300 group-hover/button:-rotate-12 " />
-            </button>
-          <button className="border rounded-3xl border-1 md:border-4 border-foreground flex items-center justify-center w-50 self-center text-foreground font-bold gap-1 bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
-            See In Github
-            <IconBrandGithub className="h-4 w-4 md:h-10 md:w-10 text-foreground" />
-            </button>
+              <h3 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground dark:text-white break-words">
+                {testimonials[active].name}
+              </h3>
+              <p className="text-xs sm:text-sm md:text-base text-gray-500 dark:text-neutral-500">
+                {testimonials[active].designation}
+              </p>
+              <motion.p className="mt-4 sm:mt-8 text-base sm:text-lg md:text-xl text-foreground dark:text-neutral-300 font-bold">
+                {testimonials[active].quote.split(" ").map((word, index) => (
+                  <motion.span
+                    key={index}
+                    initial={{
+                      filter: "blur(10px)",
+                      opacity: 0,
+                      y: 5,
+                    }}
+                    animate={{
+                      filter: "blur(0px)",
+                      opacity: 1,
+                      y: 0,
+                    }}
+                    transition={{
+                      duration: 0.2,
+                      ease: "easeInOut",
+                      delay: 0.02 * index,
+                    }}
+                    className="inline-block"
+                  >
+                    {word}&nbsp;
+                  </motion.span>
+                ))}
+              </motion.p>
+            </motion.div>
           </div>
         </div>
-        <div className="flex flex-col justify-between py-4 gap-4   border-r-2 border-foreground">
-          <motion.div
-            key={active}
-            initial={{
-              y: 20,
-              opacity: 0,
-            }}
-            animate={{
-              y: 0,
-              opacity: 1,
-            }}
-            exit={{
-              y: -20,
-              opacity: 0,
-            }}
-            transition={{
-              duration: 0.2,
-              ease: "easeInOut",
-            }}
+        <div className="flex items-center justify-center gap-4  w-full  rounded-3xl">
+          <button
+            onClick={handlePrev}
+            className="group/button flex w-32 md:w-12 lg:w-16 items-center justify-center rounded-full bg-transparent border-foreground border-1 md:border-4"
           >
-            <h3 className="text-6xl font-bold text-foreground dark:text-white">
-              {testimonials[active].name}
-            </h3>
-            <p className="text-sm text-gray-500 dark:text-neutral-500">
-              {testimonials[active].designation}
-            </p>
-            <motion.p className="mt-8 text-lg text-foreground dark:text-neutral-300 font-bold">
-              {testimonials[active].quote.split(" ").map((word, index) => (
-                <motion.span
-                  key={index}
-                  initial={{
-                    filter: "blur(10px)",
-                    opacity: 0,
-                    y: 5,
-                  }}
-                  animate={{
-                    filter: "blur(0px)",
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  transition={{
-                    duration: 0.2,
-                    ease: "easeInOut",
-                    delay: 0.02 * index,
-                  }}
-                  className="inline-block"
-                >
-                  {word}&nbsp;
-                </motion.span>
-              ))}
-            </motion.p>
-          </motion.div>
+            <IconArrowLeft className="h-8 w-8 md:h-8 md:w-8 lg:h-10 lg:w-10 text-foreground transition-transform duration-300 group-hover/button:rotate-12 " />
+          </button>
+          <button
+            onClick={handleNext}
+            className="group/button flex w-32 md:w-12 lg:w-16 items-center justify-center rounded-full bg-transparent border-foreground border-1 md:border-4"
+          >
+            <IconArrowRight className="h-8 w-8 md:h-8 md:w-8 lg:h-10 lg:w-10 text-foreground transition-transform duration-300 group-hover/button:-rotate-12 " />
+          </button>
+          <button className="border rounded-3xl border-1 md:border-4 border-foreground flex items-center justify-center px-2 md:px-4 w-auto min-w-[120px] text-xs sm:text-base md:text-lg self-center text-foreground font-bold gap-1 bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
+            See In Github
+            <IconBrandGithub className="h-8 w-8 md:h-8 md:w-8 lg:h-10 lg:w-10 text-foreground" />
+          </button>
         </div>
       </div>
   );

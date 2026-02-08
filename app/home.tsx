@@ -66,9 +66,13 @@ export default function Home() {
               textColor="var(--primary)"
             />
             <div className="flex flex-row gap-4">
-              <Button size={"lg"} className="self-center flex flex-row items-center justify-center heartbeateffect bg-transparent text-foreground border border-2 border-secondary font-bold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent px-4">
+              <Button 
+                onClick={()=> window.open('https://www.linkedin.com/in/bousoufi-mohamed-ab3aa8252/', '_blank')}
+                size={"lg"} className="self-center flex flex-row items-center justify-center heartbeateffect bg-transparent text-foreground border border-2 border-secondary font-bold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent px-4">
                 Linkedin <SlSocialLinkedin className="w-18 h-18 text-secondary" /></Button>
-              <Button size={"lg"} className="self-center flex flex-row items-center justify-center heartbeateffect bg-transparent text-foreground border border-2 border-secondary font-bold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent px-4">
+              <Button 
+                onClick={()=>window.open('https://github.com/Mohamed-Bousoufi','_blank')}
+                size={"lg"} className="self-center flex flex-row items-center justify-center heartbeateffect bg-transparent text-foreground border border-2 border-secondary font-bold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent px-4">
                 Github <FiGithub className="w-18 h-18 text-secondary" /></Button>
             </div>
           </div>

@@ -1,48 +1,48 @@
 "use client"
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials"
-import { RiNextjsFill } from "react-icons/ri";
 import { FaPython } from "react-icons/fa6";
 import { SiDjango } from "react-icons/si";
-import { RiTailwindCssFill } from "react-icons/ri";
 import { DiPostgresql } from "react-icons/di";
 import { TbBrandThreejs } from "react-icons/tb";
 import { IoLogoDocker } from "react-icons/io5";
 import { SiNginx } from "react-icons/si";
 import { FaLinux } from "react-icons/fa";
-import { FaReact } from "react-icons/fa";
 import { FaGitAlt } from "react-icons/fa";
 import { SiSocketdotio } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 import { SiSpringboot } from "react-icons/si";
-import { IconCloud } from "@/components/ui/icon-cloud";
-import { cssColorToHex } from "./utils/ColorConverter";
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
+import { LogoLoop } from "@/components/LogoLoop";
+import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss } from "react-icons/si";
+import { useTheme } from "next-themes";
 
 
 export function Projects() {
-  const [primaryColor, setPrimaryColor] = useState("#d87943");
+  const { theme } = useTheme();
 
-  useEffect(() => {
-    const Labcolor = getComputedStyle(document.documentElement).getPropertyValue("--foreground").trim();
-    const color = cssColorToHex(Labcolor);
-    if (color)  (() => setPrimaryColor(color))();
-  }, []);
+  const primaryColor = useMemo(() => {
+    if (theme === "dark") {
+      return "#c1c1c1";
+    }
+    return "#111827";
+  }, [theme]);
 
-  const IconClouds = [
-    <RiNextjsFill key="nextjs" size={96} color={primaryColor} />, 
-    <FaPython key="python" size={96} color={primaryColor}/>, 
-    <SiDjango key="django" size={96} color={primaryColor}/>,
-    <RiTailwindCssFill key="tailwind" size={96} color={primaryColor}/>,
-    <DiPostgresql key="postgresql" size={96} color={primaryColor}/>,
-    <TbBrandThreejs key="threejs" size={96} color={primaryColor}/>,
-    <IoLogoDocker key="docker" size={96} color={primaryColor}/>,
-    <SiNginx key="nginx" size={96} color={primaryColor}/>,
-    <FaLinux key="linux" size={96} color={primaryColor}/>,
-    <FaReact key="react" size={96} color={primaryColor}/>,
-    <FaGitAlt key="git" size={96} color={primaryColor}/>,
-    <SiSocketdotio key="socketio" size={96} color={primaryColor}/>,
-    <FaJava key="java" size={96} color={primaryColor}/>,
-    <SiSpringboot key="springboot" size={96} color={primaryColor}/>
+  const techLogos = [
+    { node: <SiReact size={36} color={primaryColor} />, title: "React", href: "https://react.dev" },
+    { node: <SiNextdotjs size={36} color={primaryColor} />, title: "Next.js", href: "https://nextjs.org" },
+    { node: <SiTypescript size={36} color={primaryColor} />, title: "TypeScript", href: "https://www.typescriptlang.org" },
+    { node: <SiTailwindcss size={36} color={primaryColor} />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
+    { node: <FaPython size={36} color={primaryColor}/>, title: "Python", href: "https://python.org" },
+    { node: <SiDjango size={36} color={primaryColor}/>, title: "Django", href: "https://djangoproject.com" },
+    { node: <DiPostgresql size={36} color={primaryColor}/>, title: "PostgreSQL", href: "https://postgresql.org" },
+    { node: <TbBrandThreejs size={36} color={primaryColor}/>, title: "Three.js", href: "https://threejs.org" },
+    { node: <IoLogoDocker size={36} color={primaryColor}/>, title: "Docker", href: "https://docker.com" },
+    { node: <SiNginx size={36} color={primaryColor}/>, title: "Nginx", href: "https://nginx.com" },
+    { node: <FaLinux size={36} color={primaryColor}/>, title: "Linux", href: "https://linux.org" },
+    { node: <FaGitAlt size={36} color={primaryColor}/>, title: "Git", href: "https://git-scm.com" },
+    { node: <SiSocketdotio size={36} color={primaryColor}/>, title: "Socket.IO", href: "https://socket.io" },
+    { node: <FaJava size={36} color={primaryColor}/>, title: "Java", href: "https://java.com" },
+    { node: <SiSpringboot size={36} color={primaryColor}/>, title: "Spring Boot", href: "https://spring.io/projects/spring-boot" }
   ];
 
   const testimonials = [
@@ -78,14 +78,26 @@ export function Projects() {
 
 
     return (
-      <div className="min-h-screen w-full flex flex-col-reverse md:flex-row items-center justify-center ">
-        <div className="min-w-screen h-[50dvh] min-h-[50dvh] flex justify-center items-center overflow-y-auto md:h-full md:min-h-0 ">
-          <div className="w-full max-w-md sm:max-w-lg md:max-w-none flex flex-col items-center justify-center h-full p-16 ">
+      <div className="min-h-screen w-full flex items-center justify-center ">
+        <div className="flex flex-col w-full items-center justify-center h-screen">
+          <div className="w-full max-w-full sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-5xl m-auto ">
             <AnimatedTestimonials testimonials={testimonials} />
           </div>
-          {/* <div className=" hidden sm:block">
-              <IconCloud icons={IconClouds} />
-            </div> */}
+          <div className="w-full">
+            <LogoLoop 
+              logos={techLogos}
+              speed={15}
+              direction="right"
+              logoHeight={16}
+              gap={60}
+              hoverSpeed={0}
+              scaleOnHover
+              fadeOut
+              fadeOutColor="var(--background)"
+              ariaLabel="Technology partners"
+              className="my-4 border-t-foreground border-t-1 "
+            />
+          </div>
         </div>
       </div>
     );
