@@ -1,6 +1,7 @@
 import Home from "./home"
 import About from "./about"
 import { Projects } from "./projects"
+import  Contact  from "./contact";
 
 
 
@@ -28,6 +29,12 @@ export default function Page() {
         className="h-screen w-full flex items-center justify-center  overflow-hidden snap-start"
       >
         <Projects />
+      </section>
+      <section
+        id="Contact"
+        className="h-screen w-full flex items-center justify-center overflow-hidden snap-start"
+      >
+        <Contact />
       </section>
     </main>
   );

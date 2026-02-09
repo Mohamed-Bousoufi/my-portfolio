@@ -16,7 +16,7 @@ const navItems = [
   { name: "Home", href: "#Home", icon: House },
   { name: "About", href: "#About", icon: CircleUserRound },
   { name: "Projects", href: "#Project", icon: FolderKanban },
-  { name: "Contact", href: "/contact", icon: MessageSquareMore },
+  { name: "Contact", href: "#Contact", icon: MessageSquareMore },
 ];
 
 export function Navbar() {

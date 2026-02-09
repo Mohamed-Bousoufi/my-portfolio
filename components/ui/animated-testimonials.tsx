@@ -10,6 +10,7 @@ type Testimonial = {
   name: string;
   designation: string;
   src: string;
+  href:string
 };
 export const AnimatedTestimonials = ({
   testimonials,
@@ -161,7 +162,9 @@ export const AnimatedTestimonials = ({
           >
             <IconArrowRight className="h-8 w-8 md:h-8 md:w-8 lg:h-10 lg:w-10 text-foreground transition-transform duration-300 group-hover/button:-rotate-12 " />
           </button>
-          <button className="border rounded-3xl border-1 md:border-4 border-foreground flex items-center justify-center px-2 md:px-4 w-auto min-w-[120px] text-xs sm:text-base md:text-lg self-center text-foreground font-bold gap-1 bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
+          <button 
+            onClick={()=> window.open(testimonials[active].href, "_blank")}
+            className="border rounded-3xl border-1 md:border-4 border-foreground flex items-center justify-center px-2 md:px-4 w-auto min-w-[120px] text-xs sm:text-base md:text-lg self-center text-foreground font-bold gap-1 bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
             See In Github
             <IconBrandGithub className="h-8 w-8 md:h-8 md:w-8 lg:h-10 lg:w-10 text-foreground" />
           </button>

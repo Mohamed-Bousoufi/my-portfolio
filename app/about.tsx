@@ -43,7 +43,7 @@ export default function About() {
             threshold={0.1}
             delay={0.5}
           >
-            <div className="flex flex-col sm:flex-row-reverse items-center justify-center gap-16  scroll-y-auto  md:my-30 md:mx-auto max-w-7xl">
+            <div className="flex flex-col sm:flex-row-reverse items-center justify-center gap-16  scroll-y-auto  md:my-5 md:mx-auto max-w-7xl">
               <div className="flex-1 flex items-center justify-between min-h-[40vh] sm:min-h-30 gap-6 ">
                 <ProfileCard
                   avatarUrl="/avatar.png"
@@ -75,8 +75,8 @@ export default function About() {
                 </p>
               </div>
             </div>
-            <div className="flex flex-col">
-                <span>Github Contributions</span>
+            <div className="flex flex-col border-t-2 border-secondary">
+                <span className="text-xl font-extrabold p-4 text-primary">Github Contributions</span>
               <div className="flex flex-row items-center justify-center font-light text-xs text-secondary gap-3 md:gap-13">
                 <span>Feb</span>
                 <span>Mar</span>

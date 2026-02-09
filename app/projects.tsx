@@ -52,6 +52,7 @@ export function Projects() {
       name: "IRC",
       designation: "C++ Chat Server",
       src: "/ft_irc-.png",
+      href:"https://github.com/Mohamed-Bousoufi/IRC-Server"
     },
     {
       quote:
@@ -59,6 +60,7 @@ export function Projects() {
       name: "Aqua Pong",
       designation: "Web Pong Application",
       src: "/AquaPong.png",
+      href:"https://github.com/linasbk/AquaPong-Website"
     },
     {
       quote:
@@ -66,6 +68,7 @@ export function Projects() {
       name: "MDM Tab",
       designation: "Enterprise MDM Dashboard",
       src: "/Mdm.png",
+      href:"https://github.com/aberkach/germany-process"
     },
     {
       quote:
@@ -73,6 +76,7 @@ export function Projects() {
       name: "Inception",
       designation: "Containerized Infrastructure Project",
       src: "/inception-.png",
+      href:"https://github.com/Mohamed-Bousoufi/Inception"
     }
   ];
 
@@ -95,7 +99,7 @@ export function Projects() {
               fadeOut
               fadeOutColor="var(--background)"
               ariaLabel="Technology partners"
-              className="my-4 border-t-foreground border-t-1 "
+              className="my-4"
             />
           </div>
         </div>
