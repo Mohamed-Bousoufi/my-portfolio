@@ -11,38 +11,28 @@ import { FaGitAlt } from "react-icons/fa";
 import { SiSocketdotio } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 import { SiSpringboot } from "react-icons/si";
-import { useMemo } from "react";
 import { LogoLoop } from "@/components/LogoLoop";
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss } from "react-icons/si";
-import { useTheme } from "next-themes";
 
 
 export function Projects() {
-  const { theme } = useTheme();
-
-  const primaryColor = useMemo(() => {
-    if (theme === "dark") {
-      return "#c1c1c1";
-    }
-    return "#111827";
-  }, [theme]);
 
   const techLogos = [
-    { node: <SiReact size={36} color={primaryColor} />, title: "React", href: "https://react.dev" },
-    { node: <SiNextdotjs size={36} color={primaryColor} />, title: "Next.js", href: "https://nextjs.org" },
-    { node: <SiTypescript size={36} color={primaryColor} />, title: "TypeScript", href: "https://www.typescriptlang.org" },
-    { node: <SiTailwindcss size={36} color={primaryColor} />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
-    { node: <FaPython size={36} color={primaryColor}/>, title: "Python", href: "https://python.org" },
-    { node: <SiDjango size={36} color={primaryColor}/>, title: "Django", href: "https://djangoproject.com" },
-    { node: <DiPostgresql size={36} color={primaryColor}/>, title: "PostgreSQL", href: "https://postgresql.org" },
-    { node: <TbBrandThreejs size={36} color={primaryColor}/>, title: "Three.js", href: "https://threejs.org" },
-    { node: <IoLogoDocker size={36} color={primaryColor}/>, title: "Docker", href: "https://docker.com" },
-    { node: <SiNginx size={36} color={primaryColor}/>, title: "Nginx", href: "https://nginx.com" },
-    { node: <FaLinux size={36} color={primaryColor}/>, title: "Linux", href: "https://linux.org" },
-    { node: <FaGitAlt size={36} color={primaryColor}/>, title: "Git", href: "https://git-scm.com" },
-    { node: <SiSocketdotio size={36} color={primaryColor}/>, title: "Socket.IO", href: "https://socket.io" },
-    { node: <FaJava size={36} color={primaryColor}/>, title: "Java", href: "https://java.com" },
-    { node: <SiSpringboot size={36} color={primaryColor}/>, title: "Spring Boot", href: "https://spring.io/projects/spring-boot" }
+    { node: <SiReact size={36} className="text-gray-900 dark:text-gray-300" />, title: "React", href: "https://react.dev" },
+    { node: <SiNextdotjs size={36} className="text-gray-900 dark:text-gray-300" />, title: "Next.js", href: "https://nextjs.org" },
+    { node: <SiTypescript size={36} className="text-gray-900 dark:text-gray-300" />, title: "TypeScript", href: "https://www.typescriptlang.org" },
+    { node: <SiTailwindcss size={36} className="text-gray-900 dark:text-gray-300" />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
+    { node: <FaPython size={36} className="text-gray-900 dark:text-gray-300"/>, title: "Python", href: "https://python.org" },
+    { node: <SiDjango size={36} className="text-gray-900 dark:text-gray-300"/>, title: "Django", href: "https://djangoproject.com" },
+    { node: <DiPostgresql size={36} className="text-gray-900 dark:text-gray-300"/>, title: "PostgreSQL", href: "https://postgresql.org" },
+    { node: <TbBrandThreejs size={36} className="text-gray-900 dark:text-gray-300"/>, title: "Three.js", href: "https://threejs.org" },
+    { node: <IoLogoDocker size={36} className="text-gray-900 dark:text-gray-300"/>, title: "Docker", href: "https://docker.com" },
+    { node: <SiNginx size={36} className="text-gray-900 dark:text-gray-300"/>, title: "Nginx", href: "https://nginx.com" },
+    { node: <FaLinux size={36} className="text-gray-900 dark:text-gray-300"/>, title: "Linux", href: "https://linux.org" },
+    { node: <FaGitAlt size={36} className="text-gray-900 dark:text-gray-300"/>, title: "Git", href: "https://git-scm.com" },
+    { node: <SiSocketdotio size={36} className="text-gray-900 dark:text-gray-300"/>, title: "Socket.IO", href: "https://socket.io" },
+    { node: <FaJava size={36} className="text-gray-900 dark:text-gray-300"/>, title: "Java", href: "https://java.com" },
+    { node: <SiSpringboot size={36} className="text-gray-900 dark:text-gray-300"/>, title: "Spring Boot", href: "https://spring.io/projects/spring-boot" }
   ];
 
   const testimonials = [

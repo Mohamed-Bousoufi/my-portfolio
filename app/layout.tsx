@@ -1,10 +1,10 @@
 
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Navbar } from "@/app/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import LiquidEther from "@/components/ui/eitherbackground"
-import { BackgroundPaths } from "@/components/ui/background-paths";
+import GoogleAnalytics from "./utils/googleanlytics";
+import LayoutWrapper from "./LayoutWrapper";
 
 
 import "./globals.css";
@@ -34,7 +34,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased relative min-h-screen`}
       >
-      
+      <GoogleAnalytics GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || ""} />
         <div className="fixed inset-0 -z-10 w-screen h-screen pointer-events-none ">
 
                  <LiquidEther
@@ -61,10 +61,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
           >
-          <Navbar />
-          <BackgroundPaths>
-          {children}
-          </BackgroundPaths>
+          <LayoutWrapper>
+            {children}
+          </LayoutWrapper>
         </ThemeProvider>
       </body>
     </html>
