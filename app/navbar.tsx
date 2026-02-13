@@ -10,7 +10,6 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 import { useTheme } from "next-themes";
-import { secondsToMilliseconds } from "framer-motion";
 
 const navItems = [
   { name: "Home", href: "#Home", icon: House },
@@ -33,9 +32,7 @@ export function Navbar() {
     const observer = new IntersectionObserver((entries)=>{
           entries.forEach(entry => {
             if(entry.isIntersecting) {
-              console.log("Intersecting section:", entry.target.id);
               setActiveSection(`#${entry.target.id}`);
-              // console.log("activeSection:", activeSection);
             }
           });
         
@@ -70,11 +67,11 @@ export function Navbar() {
           alt="Logo"
           width={96}
           height={96}
-          className="object-cover h-12 w-36"
+          className="object-cover h-8 md:h-12 w-20 md:w-36 pt-2"
           priority
         />
       </div>
-      <nav className="container max-w-[10%]  sm:max-w-xl md:max-w-2xl mx-auto h-12 sm:h-10 flex items-center justify-between rounded-full border border-solid border-border bg-background/50 backdrop-blur-sm shadow-2xl pl-2 sm:pl-4">
+      <nav className="container max-w-[40%] sm:max-w-xl md:max-w-2xl mx-auto h-8 sm:h-10 flex items-center justify-between rounded-full border border-solid border-border bg-background/50 backdrop-blur-sm shadow-2xl pl-2 sm:pl-4">
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-4 lg:space-x-8">

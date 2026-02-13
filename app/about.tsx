@@ -43,8 +43,8 @@ export default function About() {
             threshold={0.1}
             delay={0.5}
           >
-            <div className="flex flex-col sm:flex-row-reverse items-center justify-center gap-16  scroll-y-auto  md:my-5 md:mx-auto max-w-7xl">
-              <div className="flex-1 flex items-center justify-between min-h-[40vh] sm:min-h-30 gap-6 ">
+            <div className="flex flex-col sm:flex-row-reverse items-center justify-center gap-4 sm:gap-8 md:gap-16 scroll-y-auto md:my-5 md:mx-auto max-w-7xl px-2 sm:px-4">
+              <div className="flex-1 flex items-center justify-between min-h-[25vh] sm:min-h-30 gap-6 ">
                 <ProfileCard
                   avatarUrl="/avatar.png"
                   name="Mohamed Bousouf"
@@ -60,10 +60,10 @@ export default function About() {
                 />
               </div>
               <div className="flex-3 flex flex-col items-center justify-center h-fit sm:min-h-0 w-full  ">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground my-4 text-center bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
+                <h1 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-foreground my-2 sm:my-4 text-center bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
                   LET ME INTRODUCE MYSELF
                 </h1>
-                <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold  w-full text-center ">
+                <p className="text-xs sm:text-sm md:text-xl lg:text-2xl font-semibold w-full text-center ">
                   I build websites and web apps that people actually enjoy
                   using. Recently wrapped up an internship at Saint-Gobain where
                   I developed data management interfaces with React and
@@ -75,9 +75,9 @@ export default function About() {
                 </p>
               </div>
             </div>
-            <div className="flex flex-col border-t-2 border-secondary">
-                <span className="text-xl font-extrabold p-4 text-primary">Github Contributions</span>
-              <div className="flex flex-row items-center justify-center font-light text-xs text-secondary gap-3 md:gap-13">
+            <div className="flex flex-col border-t-2 border-secondary overflow-x-auto">
+                <span className="text-sm sm:text-xl font-extrabold p-2 sm:p-4 text-primary">Github Contributions</span>
+              <div className="flex flex-row items-center justify-center font-light text-[10px] sm:text-xs text-secondary gap-1 sm:gap-3 md:gap-13 min-w-0">
                 <span>Feb</span>
                 <span>Mar</span>
                 <span>Apr</span>

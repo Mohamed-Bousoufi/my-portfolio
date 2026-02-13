@@ -14,19 +14,19 @@ export default function Page() {
     >
       <section
         id="Home"
-        className="h-screen w-full flex items-center justify-center p-4 md:p-8 overflow-hidden snap-start"
+        className="h-screen w-full flex items-center justify-center p-2 sm:p-4 md:p-8 overflow-hidden snap-start"
       >
         <Home />
       </section>
       <section
         id="About"
-        className="h-screen w-full flex items-center justify-center overflow-hidden snap-start"
+        className="h-screen w-full flex items-center justify-center p-2 sm:p-4 md:p-8 overflow-hidden snap-start"
       >
         <About />
       </section>
       <section
         id="Project"
-        className="h-screen w-full flex items-center justify-center  overflow-hidden snap-start"
+        className="h-screen w-full flex items-center justify-center p-2 sm:p-4 md:p-8 overflow-hidden snap-start"
       >
         <Projects />
       </section>

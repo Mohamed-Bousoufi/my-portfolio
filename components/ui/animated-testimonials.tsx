@@ -1,7 +1,8 @@
 "use client";
 
-import { IconArrowLeft, IconArrowRight,IconBrandGithub } from "@tabler/icons-react";
+import { ArrowLeft, ArrowRight, Github } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import Image from "next/image";
 
 import { useEffect, useState } from "react";
 
@@ -47,9 +48,9 @@ export const AnimatedTestimonials = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [testimonials.length]);
   return (
-      <div className="flex flex-col gap-8 sm:gap- md:gap-8 lg:gap-8 w-full items-center border-foreground max-h-[80vh] overflow-auto p-2 sm:p-6 md:p-10">
-        <div className="w-full flex flex-col md:flex-row items-center gap-8 md:gap-16">
-          <div className="relative h-40 sm:h-64 md:h-96 lg:h-[28rem] w-full  rounded-3xl">
+      <div className="flex flex-col gap-20 sm:gap-6 md:gap-8 lg:gap-8 w-full items-center border-foreground max-h-[80vh] overflow-auto p-2 sm:p-6 md:p-10">
+        <div className="w-full flex flex-col md:flex-row items-center gap-4 sm:gap-8 md:gap-16">
+          <div className="relative h-32 sm:h-64 md:h-96 lg:h-[28rem] w-full  rounded-3xl">
             <AnimatePresence>
               {testimonials.map((testimonial, index) => (
                 <motion.div
@@ -82,12 +83,11 @@ export const AnimatedTestimonials = ({
                   }}
                   className="absolute inset-0 origin-bottom flex items-center justify-center"
                 >
-                  <img
-                    onClick={()=>{console.log("Image Name",testimonial.name)}}
+                  <Image
                     src={testimonial.src}
                     alt={testimonial.name}
-                    width={150}
-                    height={150}
+                    width={350}
+                    height={350}
                     draggable={false}
                     className="w-full max-w-[120px] sm:max-w-[180px] md:max-w-[250px] lg:max-w-[350px] h-auto max-h-[120px] sm:max-h-[180px] md:max-h-[250px] lg:max-h-[350px] rounded-3xl object-cover object-center border-2 md:border-4 border-foreground"
                   />
@@ -115,13 +115,13 @@ export const AnimatedTestimonials = ({
                 ease: "easeInOut",
               }}
             >
-              <h3 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground dark:text-white break-words">
+              <h3 className="text-lg sm:text-2xl md:text-5xl lg:text-6xl font-bold text-foreground dark:text-white break-words">
                 {testimonials[active].name}
               </h3>
-              <p className="text-xs sm:text-sm md:text-base text-gray-500 dark:text-neutral-500">
+              <p className="text-[10px] sm:text-xs md:text-base text-gray-500 dark:text-neutral-500">
                 {testimonials[active].designation}
               </p>
-              <motion.p className="mt-4 sm:mt-8 text-base sm:text-lg md:text-xl text-foreground dark:text-neutral-300 font-bold">
+              <motion.p className="mt-2 sm:mt-4 md:mt-8 text-xs sm:text-sm md:text-xl text-foreground dark:text-neutral-300 font-bold">
                 {testimonials[active].quote.split(" ").map((word, index) => (
                   <motion.span
                     key={index}
@@ -149,24 +149,24 @@ export const AnimatedTestimonials = ({
             </motion.div>
           </div>
         </div>
-        <div className="flex items-center justify-center gap-4  w-full  rounded-3xl">
+        <div className="flex items-center justify-center gap-2 sm:gap-4 w-full rounded-3xl">
           <button
             onClick={handlePrev}
-            className="group/button flex w-32 md:w-12 lg:w-16 items-center justify-center rounded-full bg-transparent border-foreground border-1 md:border-4"
+            className="group/button flex w-16 sm:w-12 md:w-12 lg:w-16 items-center justify-center rounded-full bg-transparent border-foreground border-1 md:border-4"
           >
-            <IconArrowLeft className="h-8 w-8 md:h-8 md:w-8 lg:h-10 lg:w-10 text-foreground transition-transform duration-300 group-hover/button:rotate-12 " />
+            <ArrowLeft className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 lg:h-10 lg:w-10 text-foreground transition-transform duration-300 group-hover/button:rotate-12 " />
           </button>
           <button
             onClick={handleNext}
-            className="group/button flex w-32 md:w-12 lg:w-16 items-center justify-center rounded-full bg-transparent border-foreground border-1 md:border-4"
+            className="group/button flex w-16 sm:w-12 md:w-12 lg:w-16 items-center justify-center rounded-full bg-transparent border-foreground border-1 md:border-4"
           >
-            <IconArrowRight className="h-8 w-8 md:h-8 md:w-8 lg:h-10 lg:w-10 text-foreground transition-transform duration-300 group-hover/button:-rotate-12 " />
+            <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 lg:h-10 lg:w-10 text-foreground transition-transform duration-300 group-hover/button:-rotate-12 " />
           </button>
-          <button 
+          <button
             onClick={()=> window.open(testimonials[active].href, "_blank")}
-            className="border rounded-3xl border-1 md:border-4 border-foreground flex items-center justify-center px-2 md:px-4 w-auto min-w-[120px] text-xs sm:text-base md:text-lg self-center text-foreground font-bold gap-1 bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
+            className="border rounded-3xl border-1 md:border-4 border-foreground flex items-center justify-center px-2 md:px-4 w-auto min-w-[80px] sm:min-w-[120px] text-[10px] sm:text-xs md:text-lg self-center text-foreground font-bold gap-1 bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
             See In Github
-            <IconBrandGithub className="h-8 w-8 md:h-8 md:w-8 lg:h-10 lg:w-10 text-foreground" />
+            <Github className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 lg:h-10 lg:w-10 text-foreground" />
           </button>
         </div>
       </div>

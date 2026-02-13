@@ -7,9 +7,7 @@ import { changeLottieColors } from "@/app/utils/animationChange";
 import { useMemo } from "react";
 import { cssColorToHex, getCssVar } from "./utils/ColorConverter";
 import { Button } from "@/components/ui/button";
-import "@/components/shadcn-space/button/button-04.css";
-import { SlSocialLinkedin } from "react-icons/sl";
-import { FiGithub } from "react-icons/fi";
+import { Linkedin, Github } from "lucide-react";
 
 
 
@@ -47,9 +45,9 @@ export default function Home() {
         threshold={0.2}
         delay={0.5}
       >
-        <div className="flex flex-col-reverse md:flex-row items-center justify-start w-full my-36">
-          <div className="flex flex-col items-center justify-center gap-4 flex-1">
-            <p className="text-3xl text-foreground flex items-center gap-2">
+        <div className="flex flex-col-reverse md:flex-row items-center justify-start w-full my-12 sm:my-20 md:my-36">
+          <div className="flex flex-col items-center justify-center gap-2 sm:gap-4 flex-1">
+            <p className="text-xl sm:text-2xl md:text-3xl text-foreground flex items-center gap-2">
               Hello, I&apos;m
               <span
                 className="animate-wave origin-bottom inline-block"
@@ -59,24 +57,24 @@ export default function Home() {
                 👋
               </span>
             </p>
-            <h1 className="text-6xl text-foreground font-medium ">Mohamed Bousoufi</h1>
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-foreground font-medium text-center">Mohamed Bousoufi</h1>
             <TypingText
               text={["Software", "Developer"]}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold my-8"
+              className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold my-4 sm:my-8"
               textColor="var(--primary)"
             />
-            <div className="flex flex-row gap-4">
-              <Button 
+            <div className="flex flex-row gap-2 sm:gap-4">
+              <Button
                 onClick={()=> window.open('https://www.linkedin.com/in/bousoufi-mohamed-ab3aa8252/', '_blank')}
-                size={"lg"} className="self-center flex flex-row items-center justify-center heartbeateffect bg-transparent text-foreground border border-2 border-secondary font-bold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent px-4">
-                Linkedin <SlSocialLinkedin className="w-18 h-18 text-secondary" /></Button>
-              <Button 
+                size={"lg"} className="self-center flex flex-row items-center justify-center heartbeateffect bg-transparent text-foreground border border-2 border-secondary font-bold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent px-2 sm:px-4 text-xs sm:text-sm">
+                Linkedin <Linkedin className="w-4 h-4 sm:w-5 sm:h-5 text-secondary" /></Button>
+              <Button
                 onClick={()=>window.open('https://github.com/Mohamed-Bousoufi','_blank')}
-                size={"lg"} className="self-center flex flex-row items-center justify-center heartbeateffect bg-transparent text-foreground border border-2 border-secondary font-bold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent px-4">
-                Github <FiGithub className="w-18 h-18 text-secondary" /></Button>
+                size={"lg"} className="self-center flex flex-row items-center justify-center heartbeateffect bg-transparent text-foreground border border-2 border-secondary font-bold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent px-2 sm:px-4 text-xs sm:text-sm">
+                Github <Github className="w-4 h-4 sm:w-5 sm:h-5 text-secondary" /></Button>
             </div>
           </div>
-          <Lottie animationData={coloredAnimation} loop={true} className="inline-block align-top rounded-full w-40 h-40 sm:w-96 sm:h-96 md:w-128 md:h-128 lg:w-128 lg:h-128 shrink-0 " />
+          <Lottie animationData={coloredAnimation} loop={true} className="inline-block align-top rounded-full w-32 h-32 sm:w-96 sm:h-96 md:w-128 md:h-128 lg:w-128 lg:h-128 shrink-0 " />
         </div>
       </AnimatedContent>
   //  </BackgroundPaths>
