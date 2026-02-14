@@ -59,7 +59,7 @@ export default function Home() {
             </p>
             <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-foreground font-medium text-center">Mohamed Bousoufi</h1>
             <TypingText
-              text={["Software", "Developer"]}
+              text={["Software Engineer", "Web Developer", "Tech Enthusiast"]}
               className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold my-4 sm:my-8"
               textColor="var(--primary)"
             />
@@ -77,6 +77,5 @@ export default function Home() {
           <Lottie animationData={coloredAnimation} loop={true} className="inline-block align-top rounded-full w-32 h-32 sm:w-96 sm:h-96 md:w-128 md:h-128 lg:w-128 lg:h-128 shrink-0 " />
         </div>
       </AnimatedContent>
-  //  </BackgroundPaths>
   );
 }

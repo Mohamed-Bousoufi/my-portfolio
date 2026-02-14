@@ -18,8 +18,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "My-Portfolio",
-  description: "",
+  title: "Mohamed Bousoufi - Software Engineer",
+  description: "personal portfolio of Mohamed Bousoufi, a software engineer specializing in web development. Explore projects, skills, and experience in building innovative solutions.",
 };
 
 export default function RootLayout({
