@@ -149,24 +149,24 @@ export const AnimatedTestimonials = ({
             </motion.div>
           </div>
         </div>
-        <div className="flex items-center justify-center gap-2 sm:gap-4 w-full rounded-3xl">
+        <div className="flex items-center justify-center gap-4 sm:gap-8 w-full rounded-3xl">
           <button
             onClick={handlePrev}
             className="group/button flex w-16 sm:w-12 md:w-12 lg:w-16 items-center justify-center rounded-full bg-transparent border-foreground border-1 md:border-4"
           >
-            <ArrowLeft className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 lg:h-10 lg:w-10 text-foreground transition-transform duration-300 group-hover/button:rotate-12 " />
+            <ArrowLeft className="h-8 w-8 sm:h-8 sm:w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 text-foreground transition-transform duration-300 group-hover/button:rotate-12 " />
           </button>
           <button
             onClick={handleNext}
             className="group/button flex w-16 sm:w-12 md:w-12 lg:w-16 items-center justify-center rounded-full bg-transparent border-foreground border-1 md:border-4"
           >
-            <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 lg:h-10 lg:w-10 text-foreground transition-transform duration-300 group-hover/button:-rotate-12 " />
+            <ArrowRight className="h-8 w-8 sm:h-8 sm:w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 text-foreground transition-transform duration-300 group-hover/button:-rotate-12 " />
           </button>
           <button
             onClick={()=> window.open(testimonials[active].href, "_blank")}
             className="border rounded-3xl border-1 md:border-4 border-foreground flex items-center justify-center px-2 md:px-4 w-auto min-w-[80px] sm:min-w-[120px] text-[10px] sm:text-xs md:text-lg self-center text-foreground font-bold gap-1 bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
             See In Github
-            <Github className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 lg:h-10 lg:w-10 text-foreground" />
+            <Github className="h-8 w-8 sm:h-8 sm:w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 text-foreground" />
           </button>
         </div>
       </div>
