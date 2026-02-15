@@ -8,8 +8,6 @@ import  Contact  from "./contact";
 
 
 export default function Page() {
-  console.log("DEBUG ENV:", process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID);
-  console.log("DEBUG ENV GITHUB:", process.env.NEXT_PUBLIC_GiTHUB_USERNAME,process.env.NEXT_PUBLIC_GITHUB_TOKEN);
   return (
     <main
       className="h-screen w-full overflow-y-scroll bg-transparent scroll-smooth snap-y snap-mandatory"
