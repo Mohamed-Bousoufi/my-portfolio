@@ -27,7 +27,7 @@ export default function Home() {
     "#35ca35": cssColorToHex(getCssVar("--primary", "#00b262")),
   }), []);
   console.log("DEBUG ENV:", process.env.NEXT_PUBLIC_GA_ID);
-  console.log("DEBUG ENV GITHUB:", process.env.NEXT_PUBLIC_GiTHUB_USERNAME,process.env.NEXT_PUBLIC_GITHUB_TOKEN);
+  console.log("DEBUG ENV GITHUB:", process.env.NEXT_PUBLIC_GITHUB_USERNAME,process.env.NEXT_PUBLIC_GITHUB_TOKEN);
   const coloredAnimation = useMemo(() => {
     return changeLottieColors(animationData, colorMap);
   }, [colorMap]);

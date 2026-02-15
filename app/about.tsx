@@ -92,7 +92,7 @@ export default function About() {
                 <span>Jan</span>
               </div>
               <ContributionGraph
-                username="Mohamed-Bousoufi"
+                username= {process.env.NEXT_PUBLIC_GITHUB_USERNAME ?? ""}
                 token={process.env.NEXT_PUBLIC_GITHUB_TOKEN ?? ""}
                 theme={theme === "dark" ? "dark" : "light"}
                 cacheTime="8h"
