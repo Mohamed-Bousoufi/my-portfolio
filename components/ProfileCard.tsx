@@ -568,7 +568,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                 className="w-full absolute left-1/2 bottom-[-1px] will-change-transform transition-transform duration-[120ms] ease-out"
                 src={avatarUrl}
                 alt={`${name || "User"} avatar`}
-                loading="lazy"
+
                 style={{
                   transformOrigin: "50% 100%",
                   transform:
@@ -607,7 +607,6 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                         className="w-full h-full object-cover rounded-full"
                         src={miniAvatarUrl || avatarUrl}
                         alt={`${name || "User"} mini avatar`}
-                        loading="lazy"
                         style={{
                           display: "block",
                           gridArea: "auto",
