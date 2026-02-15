@@ -27,13 +27,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  console.log("DEBUG ENV:", process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID);
+  console.log("DEBUG ENV GITHUB:", process.env.NEXT_PUBLIC_GiTHUB_USERNAME,process.env.NEXT_PUBLIC_GITHUB_TOKEN);
   return (
     <html lang="en" suppressHydrationWarning>
       <GoogleAnalytics GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || ""} />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased relative min-h-screen`}
       >
-
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
